@@ -1,0 +1,10 @@
+[user]
+	name = Leonard Chin
+[color]
+	ui = auto
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+[merge]
+	tool = opendiff

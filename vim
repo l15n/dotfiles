@@ -1,0 +1,1 @@
+workspace/projects/l15n/config/vim/dot.vim

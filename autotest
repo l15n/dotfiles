@@ -1,0 +1,54 @@
+require 'autotest/redgreen'
+require 'autotest/screen'
+require 'autotest/timestamp'
+
+## Force find_files to ignore flymake files
+class Autotest
+  def find_files
+    result = {}
+    Find.find '.' do |f|
+      Find.prune if @exceptions and f =~ @exceptions and test ?d, f
+
+      next if test ?d, f
+      next if f =~ /(swp|~|rej|orig)$/        # temporary/patch files
+      next if f =~ /\/\.?#/                     # Emacs autosave/cvs merge files
+      next if f=~ /_flymake\.rb$/ # flymake -> used by emacs-rails
+      filename = f.sub(/^\.\//, '')
+
+      result[filename] = File.stat(filename).mtime rescue next
+    end
+    return result
+  end
+end
+
+## Screen config, from http://kakutani.com/20070912.html
+Autotest::HOOKS.delete(:interrupt)
+Autotest::Screen.statusline = %q[|%c %m/%d|%w %=]
+class Autotest::Screen
+  SCREEN_COLOR[:green] = 'gw'
+  SCREEN_COLOR[:yellow] = 'yk'
+
+  Autotest.add_hook :run_command do |at|
+    message 'Running' if execute?
+  end
+
+  Autotest.add_hook :quit do |at|
+    clear if execute?
+  end
+
+  Autotest.add_hook :ran_command do |at|
+    return unless execute?
+    results = [at.results].flatten.join("\n")
+    output = results.slice(/(\d+)\sexamples?,\s*(\d+)\s.*failures?(?:,\s*(\d+)\s.*pendings?)?/)
+    if output
+      ex,fail,pend = $~.captures.map {|e| e.to_i}
+      if 0 < fail
+        message "FAIL #{ex}ex, F:#{fail} ", :red
+      elsif 0 < pend
+        message "Pend #{ex}ex, F:#{fail} P:#{pend}", :yellow
+      else
+        message "All Green #{ex}ex", :green
+      end
+    end
+  end
+end
