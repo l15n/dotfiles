@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/config/!svn/ver/31/vim/dot.vim/after/ftplugin
+END
+php.vim
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/config/!svn/ver/31/vim/dot.vim/after/ftplugin/php.vim
+END
+java.vim
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/config/!svn/ver/31/vim/dot.vim/after/ftplugin/java.vim
+END
+ruby.vim
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/config/!svn/ver/31/vim/dot.vim/after/ftplugin/ruby.vim
+END
