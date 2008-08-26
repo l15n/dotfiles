@@ -13,3 +13,5 @@
 	amend = commit --amend
 [merge]
 	tool = opendiff
+[format]
+	numbered = auto
