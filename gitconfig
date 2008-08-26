@@ -1,10 +1,18 @@
 [user]
 	name = Leonard Chin
 [color]
-	ui = auto
+	interactive = auto
+        status = auto
+        diff = auto
+        branch = auto
 [alias]
 	st = status
 	ci = commit
 	co = checkout
-[merge]
-	tool = opendiff
+	staged = diff --cached
+	unstaged = diff
+	both = diff HEAD
+	oneline = log --pretty=oneline
+	amend = commit --amend
+[format]
+	numbered = auto
