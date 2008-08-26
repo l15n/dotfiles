@@ -15,3 +15,5 @@
 	tool = opendiff
 [format]
 	numbered = auto
+[branch]
+	autosetupmerge = true
