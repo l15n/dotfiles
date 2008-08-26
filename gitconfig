@@ -6,5 +6,10 @@
 	st = status
 	ci = commit
 	co = checkout
+	staged = diff --cached
+	unstaged = diff
+	both = diff HEAD
+	oneline = log --pretty=oneline
+	amend = commit --amend
 [merge]
 	tool = opendiff
