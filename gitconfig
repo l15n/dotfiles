@@ -11,3 +11,5 @@
 	both = diff HEAD
 	oneline = log --pretty=oneline
 	amend = commit --amend
+[format]
+	numbered = auto
