@@ -16,3 +16,5 @@
 	amend = commit --amend
 [format]
 	numbered = auto
+[branch]
+	autosetupmerge = true
