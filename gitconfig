@@ -12,7 +12,7 @@
 	staged = diff --cached
 	unstaged = diff
 	both = diff HEAD
-	oneline = log --pretty=oneline
+	oneline = log --pretty=oneline --abbrev-commit
 	amend = commit --amend
 [format]
 	numbered = auto
