@@ -34,9 +34,15 @@ setopt long_list_jobs
 setopt auto_resume
 
 ## ALIASES
-alias ls="ls -h --color=auto"
-alias ll="ls -lh --color=auto"
-alias vi=vim
+#alias ls="ls -h --color=auto" # Linux
+#alias ll="ls -lh --color=auto" # Linux
+alias ls="ls -h -G" # OS X
+alias ll="ls -lh -G" # OS X
+alias vi=/usr/bin/vim
+alias vim=mvim
+alias gvim=mvim
+alias view="/usr/bin/vim -R"
+alias vimdiff="mvim -d"
 
 # For Screen: set title to command name
 #preexec () {
@@ -54,3 +60,5 @@ bindkey -e
 PS1="[%n@%m](%h)$ "
 RPS1="%~"
 
+# setting LC_CTYPE for textmate
+export LC_CTYPE=en_US.UTF-8
