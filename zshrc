@@ -52,5 +52,5 @@ bindkey -e
 
 # Simple prompt
 PS1="[%n@%m](%h)$ "
-RPS1="%/"
+RPS1="%~"
 
