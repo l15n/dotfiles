@@ -1,54 +1,95 @@
-require 'autotest/redgreen'
-require 'autotest/screen'
-require 'autotest/timestamp'
+# Completely replaces the screen.rb packaged with ZenTest 3.10.0
+# Derived from http://gist.github.com/7772
 
-## Force find_files to ignore flymake files
-class Autotest
-  def find_files
-    result = {}
-    Find.find '.' do |f|
-      Find.prune if @exceptions and f =~ @exceptions and test ?d, f
-
-      next if test ?d, f
-      next if f =~ /(swp|~|rej|orig)$/        # temporary/patch files
-      next if f =~ /\/\.?#/                     # Emacs autosave/cvs merge files
-      next if f=~ /_flymake\.rb$/ # flymake -> used by emacs-rails
-      filename = f.sub(/^\.\//, '')
-
-      result[filename] = File.stat(filename).mtime rescue next
-    end
-    return result
-  end
-end
-
-## Screen config, from http://kakutani.com/20070912.html
-Autotest::HOOKS.delete(:interrupt)
-Autotest::Screen.statusline = %q[|%c %m/%d|%w %=]
 class Autotest::Screen
-  SCREEN_COLOR[:green] = 'gw'
-  SCREEN_COLOR[:yellow] = 'yk'
+  DEFAULT_STATUSLINE = '%H %`%-w%{=b bw}%n %t%{-}%+w'
+  DEFAULT_SCREEN_CMD = 'screen'
 
-  Autotest.add_hook :run_command do |at|
-    message 'Running' if execute?
+  SCREEN_COLOR = {
+    :black  => 'dd',
+    :green  => 'gw',
+    :yellow => 'yk',
+    :red    => 'rw',
+  }
+
+  def self.message(msg, color = :black)
+    col = SCREEN_COLOR[color]
+    msg = %Q[ %{=b #{col}} #{msg} %{-}]
+    send_cmd(msg)
+  end
+
+  def self.clear
+    send_cmd('')
+  end
+
+  def self.run_screen_session?
+    str = `#{screen_cmd} -ls`
+    str.match(/(\d+) Socket/) && ($1.to_i > 0)
+  end
+
+  def self.execute?
+    !($TESTING || !run_screen_session?)
+  end
+
+  @statusline, @screen_cmd = nil
+  def self.statusline; @statusline || DEFAULT_STATUSLINE.dup; end
+  def self.statusline=(a); @statusline = a; end
+  def self.screen_cmd; @screen_cmd || DEFAULT_SCREEN_CMD.dup; end
+  def self.screen_cmd=(a); @screen_cmd = a; end
+
+  def self.send_cmd(msg)
+    cmd = %(#{screen_cmd} -X eval 'hardstatus alwayslastline "#{(statusline + msg).gsub('"', '\"')}"') #' stupid ruby-mode
+    system cmd
+  end
+
+  # All blocks return false for each of following blocks defined in user's own ".autotest".
+
+  Autotest.add_hook :initialize do |at|
+    message "Run with #{at.class}" if execute?
+
+    next false
   end
 
   Autotest.add_hook :quit do |at|
     clear if execute?
+
+    next false
+  end
+
+  Autotest.add_hook :run_command do |at|
+    message 'Running' if execute?
+
+    next false
   end
 
   Autotest.add_hook :ran_command do |at|
-    return unless execute?
-    results = [at.results].flatten.join("\n")
-    output = results.slice(/(\d+)\sexamples?,\s*(\d+)\s.*failures?(?:,\s*(\d+)\s.*pendings?)?/)
-    if output
-      ex,fail,pend = $~.captures.map {|e| e.to_i}
-      if 0 < fail
-        message "FAIL #{ex}ex, F:#{fail} ", :red
-      elsif 0 < pend
-        message "Pend #{ex}ex, F:#{fail} P:#{pend}", :yellow
+    next false unless execute?
+
+    output = at.results.join
+
+    unless defined? Spec::Example
+      results = output.scan(/(\d+)\s*failures?,\s*(\d+)\s*errors?/).first
+      num_failures, num_errors = results.map{|r| r.to_i}
+
+      if num_failures > 0 || num_errors > 0
+        message "Red F:#{num_failures} E:#{num_errors}", :red
       else
-        message "All Green #{ex}ex", :green
+        message 'All Green', :green
+      end
+    else
+      results = output.scan(/(\d+)\s*examples?,\s*(\d+)\s*failures?(?:,\s*(\d+)\s*pendings?)?/).first
+      num_examples, num_failures, num_pendings = results.map{|r| r.to_i}
+
+      if num_failures > 0
+        message "Fail F:#{num_failures} P:#{num_pendings}", :red
+      elsif num_pendings > 0
+        message "Pend F:#{num_failures} P:#{num_pendings}", :yellow
+      else
+        message 'All Green', :green
       end
     end
+
+    next false
   end
 end
+Autotest::Screen.statusline = %q[|%c %m/%d|%w %=]
