@@ -34,24 +34,22 @@ setopt long_list_jobs
 setopt auto_resume
 
 ## ALIASES
-#alias ls="ls -h --color=auto" # Linux
-#alias ll="ls -lh --color=auto" # Linux
-alias ls="ls -h -G" # OS X
-alias ll="ls -lh -G" # OS X
-alias vi=/usr/bin/vim
-alias vim=mvim
+alias ls="ls -h -G"
+alias ll="ls -lh -G"
+alias vi=/opt/local/bin/vim
+alias vim=/opt/local/bin/vim
 alias gvim=mvim
-alias view="/usr/bin/vim -R"
+alias view="/opt/local/bin/vim -R"
 alias vimdiff="mvim -d"
 
 # For Screen: set title to command name
-#preexec () {
-#  echo -ne "\ek${1%% *}\e\\"
-#}
+preexec () {
+  echo -ne "\ek${1%% *}\e\\"
+}
 # Return screen prompt to say zsh afterwards
-#precmd () {
-#  echo -ne "\ekzsh\e\\"
-#}
+precmd () {
+  echo -ne "\ekzsh\e\\"
+}
 
 # Emacs keybindings for the shell (explicit since EDITOR=vim)
 bindkey -e
