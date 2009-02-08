@@ -1,6 +1,12 @@
-Configuration files. Initially, just following instructions from:
-http://errtheblog.com/posts/89-huba-huba
+About
+-----
+My configuration files.
+Inspired by err the blog. http://errtheblog.com/posts/89-huba-huba
 
-TODO: 
- - branches by platform/machine
- - cleanup
+Usage
+-----
+- Files in active/ will be linked into $HOME with a dot '.' prefix added.
+- Unused configuration files can be kept in inactive.
+- Install by running ./install (requires ruby)
+-- existing symlinks will be removed
+-- existing files/directories will be moved

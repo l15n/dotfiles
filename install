@@ -1,11 +1,22 @@
 #!/usr/bin/env ruby
-
-# from http://errtheblog.com/posts/89-huba-huba
+# Derived from http://errtheblog.com/posts/89-huba-huba
 
 home = File.expand_path('~')
-
-Dir['*'].each do |file|
-  next if file =~ /(install|README|.gitignore)/
+dotfiles = File.expand_path('active')
+Dir.new(dotfiles).each do |file|
+  next if file =~ /(\.|\.\.)/
+  begin
   target = File.join(home, ".#{file}")
-  `ln -s #{File.expand_path file} #{target}`
+  if File.symlink? target
+      File.unlink(target)
+      puts "Old link to .#{file} exists. Unlinking existing .#{file}"
+  elsif File.exists? target
+      File.rename(target, target + '.backup')
+      puts ".#{file} exists. Backup existing .#{file} as .#{file}.backup"
+  end
+  File.symlink(File.join(dotfiles, file), target)
+  puts "Installed .#{file}"
+  rescue Exception => e
+    puts "Failed to install .#{file}. Reason: #{e.message}"
+  end
 end
