@@ -1,1 +1,4 @@
-*.log
+# Editor
+.tmproject
+# Filesystem
+.DS_Store
