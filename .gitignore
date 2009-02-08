@@ -2,3 +2,5 @@
 .tmproject
 # Filesystem
 .DS_Store
+fishd.*
+fish_*history
