@@ -1,10 +1,7 @@
 [user]
 	name = Leonard Chin
 [color]
-	interactive = auto
-        status = auto
-        diff = auto
-        branch = auto
+	ui = always
 [alias]
 	st = status
 	ci = commit
