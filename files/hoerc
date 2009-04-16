@@ -1,0 +1,1 @@
+exclude: !ruby/regexp /tmp$|CVS|\.svn|_darcs|\.git|log$|local/.*\.rb$|Makefile|.*\.o$|.*\.bundle$|.*\.so$|.*\.dll$/
