@@ -8,4 +8,4 @@ fish_*history
 .svn
 localrc.bash
 local_profile.bash
-
+update_servers.sh
