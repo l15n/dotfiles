@@ -4,3 +4,8 @@
 .DS_Store
 fishd.*
 fish_*history
+# SVN/local settings
+.svn
+localrc.bash
+local_profile.bash
+
