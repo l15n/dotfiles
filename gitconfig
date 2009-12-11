@@ -1,7 +1,8 @@
 [user]
 	name = Leonard Chin
+	email = l.g.chin@gmail.com
 [color]
-	ui = always
+	ui = auto
 [alias]
 	st = status
 	ci = commit
@@ -11,9 +12,13 @@
 	both = diff HEAD
 	oneline = log --pretty=oneline --abbrev-commit
 	amend = commit --amend
+  track = branch --track
 [merge]
 	tool = opendiff
 [format]
 	numbered = auto
 [branch]
 	autosetupmerge = true
+[github]
+	user = l15n
+	token = 88b1e49205dfa09353d1c2d1eccac080
