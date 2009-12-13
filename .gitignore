@@ -9,3 +9,5 @@ fish_*history
 localrc.bash
 local_profile.bash
 
+*.swp
+
