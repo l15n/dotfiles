@@ -52,10 +52,10 @@ nnoremap ge gj
 nnoremap gu gk
 
 " Split window controls (direction keys)
-nnoremap wn <C-w>j
-nnoremap we <C-w>k
-nnoremap wh <C-w>h
-nnoremap wi <C-w>l
+nnoremap <C-w>n <C-w>j
+nnoremap <C-w>e <C-w>k
+nnoremap <C-w>h <C-w>h
+nnoremap <C-w>i <C-w>l
 " Split window controls (other commands)
-nnoremap wk <C-w>n
-nnoremap wo <C-w>o
+nnoremap <C-w>k <C-w>n
+nnoremap <C-w>o <C-w>o
