@@ -43,10 +43,10 @@ noremap U I
 noremap l u
 noremap L u
 " 5. Use s/t (QWERTY position df) for page up/down
-noremap s <C-D>
-noremap t <C-U>
-noremap S <C-F>
-noremap T <C-B>
+nnoremap s <C-D>
+nnoremap t <C-U>
+nnoremap S <C-F>
+nnoremap T <C-B>
 " Fix commands g* commands
 nnoremap ge gj
 nnoremap gu gk
