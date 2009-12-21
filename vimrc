@@ -16,8 +16,13 @@ set expandtab
 set tabstop=2
 " Highlight lines over 120 characters in length whenever a window opens
 " From http://vim.wikia.com/wiki/Highlight_long_lines
-:au BufWinEnter * let w:m1=matchadd('Search', '\%<121v.\%>117v', -1)
-:au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>120v.\+', -1)
+if v:version >= 720
+  :au BufWinEnter * let w:m1=matchadd('Search', '\%<121v.\%>117v', -1)
+  :au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>120v.\+', -1)
+elseif v:version >= 700
+  :au BufRead,BufNewFile * syntax match Search /\%<121v.\%>117v/
+  :au BufRead,BufNewFile * syntax match ErrorMsg /\%>120v.\+/
+endif
 
 
 set autoindent
