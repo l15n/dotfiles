@@ -1,14 +1,46 @@
-" Remap for colemak
-source $HOME/.vim/simple-colemak.vim
+" Vim options, categorized like :options
+" 1. Important
+set nocompatible
+" 2. moving around, searching and patterns
+set incsearch
+" 4. displaying text
+set number
+" 5. syntax, highlighting and spelling
+set hlsearch
+set cursorline
+" 6. multiple windows
+set laststatus=2
+" 10. GUI
+if has("gui_running")
+  set guioptions-=m
+  set guioptions-=T
+endif
+" 12. messages and info
+set showcmd
+set showmode
+set ruler
+set visualbell
+set helplang=en
+" 14. editing text
+set backspace=indent,eol,start
+set showmatch
+" 15. tabs and indenting
+set autoindent
+" 17. diff mode
+set diffopt=filler,iwhite,vertical
+" 19. reading and writing files
+set autowrite
+set fileformats=unix,mac,dos
+" 21. command line editing
+set history=100
+" 25. multi-byte characters
+" Treat ambiguous double-width characters (e.g.□星♪ etc) correctly
+set ambiwidth=double
+
+filetype plugin indent on
+syntax on
 " default colors
 color delek
-" Options
-set nocompatible
-set ruler
-set showmode
-set showmatch
-set showcmd
-set ignorecase
 
 " Highlight lines over 120 characters in length whenever a window opens
 " From http://vim.wikia.com/wiki/Highlight_long_lines
@@ -20,24 +52,7 @@ elseif v:version >= 700
   :au BufRead,BufNewFile * syntax match ErrorMsg /\%>120v.\+/
 endif
 
-
-set autoindent
-set autowrite
-
-set backspace=2
-set history=1000
-set noincsearch
-set hlsearch
-
-set number
-set laststatus=2
-
-" Treat ambiguous doublewidth characters (e.g.□星♪ etc) correctly
-set ambiwidth=double
-
-syntax on
-
-filetype plugin indent on
-
-"" 改行を判定する
-set fileformats=unix,mac,dos
+" Remap for colemak
+source $HOME/.vim/simple-colemak.vim
+" Load man.vim
+runtime ftplugin/man.vim
