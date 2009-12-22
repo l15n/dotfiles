@@ -41,7 +41,7 @@ noremap U I
 " 4. Replace u/U with l/L (QWERTY)
 " Command: undo
 noremap l u
-noremap L u
+noremap L U
 " 5. Use s/t (QWERTY position df) for page up/down
 nnoremap s <C-D>
 nnoremap t <C-U>
