@@ -40,7 +40,8 @@ set ambiwidth=double
 filetype plugin indent on
 syntax on
 " default colors
-color delek
+" Navajo colorscheme http://www.vim.org/scripts/script.php?script_id=190
+color navajo
 
 " Highlight lines over 120 characters in length whenever a window opens
 " From http://vim.wikia.com/wiki/Highlight_long_lines
