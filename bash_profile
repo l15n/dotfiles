@@ -10,6 +10,6 @@ fi
 
 
 # EDITOR variables
-export EDITOR="mvim"
-export SVN_EDITOR="mvim -f"
-export GIT_EDITOR="mvim -f"
+export EDITOR="/usr/bin/vim"
+export SVN_EDITOR="/usr/bin/vim"
+export GIT_EDITOR="/usr/bin/vim"
