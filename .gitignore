@@ -1,6 +1,7 @@
 # Editor
 .tmproject
 *.swp
+.netrwhist
 # Filesystem
 .DS_Store
 fishd.*
