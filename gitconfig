@@ -19,6 +19,3 @@
 	numbered = auto
 [branch]
 	autosetupmerge = true
-[github]
-	user = l15n
-	token = 88b1e49205dfa09353d1c2d1eccac080
