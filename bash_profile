@@ -4,7 +4,7 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # Get local profile (not shared across machines)
-if [ -f ~/.local_profile ]; then
+if [ -f ~/.local_profile.bash ]; then
         . ~/.local_profile.bash
 fi
 
