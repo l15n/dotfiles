@@ -18,3 +18,8 @@ do
     fi
   fi
 done
+if [ ! -x "$HOME/bin/ack" ]; then
+	curl http://betterthangrep.com/ack-standalone > ~/bin/ack && chmod 0755 ~/bin/ack
+fi
+
+	
