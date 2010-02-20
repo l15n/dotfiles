@@ -12,7 +12,7 @@ alias vim=/usr/bin/vim
 
 # Get local (not shared across machines) settings
 # Primarily for local aliases
-if [ -f ~/.localrc ]; then
+if [ -f ~/.localrc.bash ]; then
         source ~/.localrc.bash
 fi
 
