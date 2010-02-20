@@ -13,3 +13,4 @@ fi
 export EDITOR="/usr/bin/vim"
 export SVN_EDITOR="/usr/bin/vim"
 export GIT_EDITOR="/usr/bin/vim"
+if [[ -s /Users/lchin/.rvm/scripts/rvm ]] ; then source /Users/lchin/.rvm/scripts/rvm ; fi

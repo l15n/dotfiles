@@ -96,3 +96,6 @@ PS1=$'$(__last_status_ps1)$(__cwrap [!\!@\A][j:\j][\w] 47)$(__scm_ps1)\n\[$(__cw
 # Shell options
 shopt -s checkwinsize
 shopt -s cdspell
+# RVM
+if [[ -s /Users/lchin/.rvm/scripts/rvm ]] ; then source /Users/lchin/.rvm/scripts/rvm ; fi
+
