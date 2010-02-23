@@ -88,11 +88,24 @@ __scm_ps1() {
         fi
 }
 
+__rvm_ps1() {
+	local rvm_ps1=`~/.rvm/bin/rvm-prompt i v`
+	if [ $rvm_ps1 ]; then
+		__cwrap "|${rvm_ps1}|" 1\;31
+	else
+		__cwrap "|system|" 1\;31
+	fi
+}
+
+
 # Prompts
 declare +x PS1
 # On line 2, non-printable chars are surrounded with \[ \] to help line wrapping
-PS1=$'$(__last_status_ps1)$(__cwrap [!\!@\A][j:\j][\w] 47)$(__scm_ps1)\n\[$(__cwrap \]\u\[ 1\;35)\]@\[$(__cwrap \]\h\[ 1\;30)\] \$ '
+PS1=$'$(__last_status_ps1)$(__cwrap [!\!@\A][j:\j][\w] 47)$(__scm_ps1)$(__rvm_ps1)\n\[$(__cwrap \]\u\[ 1\;35)\]@\[$(__cwrap \]\h\[ 1\;30)\] \$ '
 
 # Shell options
 shopt -s checkwinsize
 shopt -s cdspell
+# RVM
+if [[ -s /Users/lchin/.rvm/scripts/rvm ]] ; then source /Users/lchin/.rvm/scripts/rvm ; fi
+
