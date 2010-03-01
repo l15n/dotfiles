@@ -89,7 +89,9 @@ __scm_ps1() {
 }
 
 __rvm_ps1() {
-	local rvm_ps1=`~/.rvm/bin/rvm-prompt i v`
+	if [[ -s /Users/lchin/.rvm/scripts/rvm ]] ; then
+		local rvm_ps1=`~/.rvm/bin/rvm-prompt i v`
+	fi
 	if [ $rvm_ps1 ]; then
 		__cwrap "|${rvm_ps1}|" 1\;31
 	else
