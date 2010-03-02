@@ -10,7 +10,7 @@ fi
 
 
 # EDITOR variables
-export EDITOR="/usr/bin/vim"
-export SVN_EDITOR="/usr/bin/vim"
-export GIT_EDITOR="/usr/bin/vim"
+export EDITOR=`which vim`
+export SVN_EDITOR=`which vim`
+export GIT_EDITOR=`which vim`
 if [[ -s /Users/lchin/.rvm/scripts/rvm ]] ; then source /Users/lchin/.rvm/scripts/rvm ; fi

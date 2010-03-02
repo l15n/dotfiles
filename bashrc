@@ -8,7 +8,7 @@ alias s="svn"
 alias i="irb"
 alias r="rak"
 # Workaround Snow Leopard vim exit code problem
-alias vim=/usr/bin/vim
+alias vim=`which vim`
 
 # Get local (not shared across machines) settings
 # Primarily for local aliases
