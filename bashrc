@@ -1,12 +1,20 @@
 # ~/.bashrc is executed when non-login interactive shells are started
 
 # Convenience aliases
-alias ls="ls -G"
-alias l="ls -lhGa"
 alias g="git"
 alias s="svn"
 alias i="irb"
 alias r="rak"
+# Aliases using OS dependent flags
+if [ $OSTYPE = 'linux-gnu' ]; then
+	alias ls="ls --color=always"
+	alias l="ls -lhia"
+else
+	# Assume Darwin/BSD if not linux-gnu
+	alias ls="ls -G"
+	alias l="ls -lhGa"
+fi
+
 # Workaround Snow Leopard vim exit code problem
 alias vim=`which vim`
 
