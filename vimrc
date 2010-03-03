@@ -37,6 +37,9 @@ set history=100
 " Treat ambiguous double-width characters (e.g.□星♪ etc) correctly
 set ambiwidth=double
 
+" Add sjis to fileencodings
+set fileencodings=ucs-bom,utf-8,sjis,default,latin1
+
 filetype plugin indent on
 syntax on
 " default colors

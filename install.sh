@@ -19,7 +19,8 @@ do
   fi
 done
 if [ ! -x "$HOME/bin/ack" ]; then
-	curl http://betterthangrep.com/ack-standalone > ~/bin/ack && chmod 0755 ~/bin/ack
+  mkdir -p $HOME/bin
+  echo "Installing ack (standalone)"
+  curl http://betterthangrep.com/ack-standalone > $HOME/bin/ack
+  chmod 0755 $HOME/bin/ack
 fi
-
-	
