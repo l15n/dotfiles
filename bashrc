@@ -81,6 +81,7 @@ __svn_branch() {
 
 # TODO: git dirty/clean
 # Print out scm stuff. Colorize where possible.
+# Git: Green, SVN: Cyan
 __scm_ps1() {
         local git_ps1_output=`__git_ps1 "|%s|" 2>/dev/null`
         if [ $git_ps1_output ]; then
@@ -96,6 +97,8 @@ __scm_ps1() {
         fi
 }
 
+# Print ruby version selected by rvm.
+# System default: black bg RVM: Red
 __rvm_ps1() {
 	if [[ -s /Users/lchin/.rvm/scripts/rvm ]] ; then
 		local rvm_ps1=`~/.rvm/bin/rvm-prompt i v`
@@ -103,7 +106,7 @@ __rvm_ps1() {
 	if [ $rvm_ps1 ]; then
 		__cwrap "|${rvm_ps1}|" 1\;31
 	else
-		__cwrap "|system|" 1\;31
+		__cwrap "|system|" 1\;37\;40
 	fi
 }
 
