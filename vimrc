@@ -60,3 +60,7 @@ endif
 source $HOME/.vim/simple-colemak.vim
 " Load man.vim
 runtime ftplugin/man.vim
+
+" Plugin-specific bindings
+" Toggle taglist
+nnoremap <silent> <F8> :TlistToggle<CR>
