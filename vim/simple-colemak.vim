@@ -77,11 +77,6 @@ cnoremap <M-b> <S-Left>
 cmap <C-a> <Home>
 cmap <C-e> <End>
 
-" Editing
-cmap <M-p> <Up>
-cmap <M-n> <Down>
-cmap <C-d> <Del>
-
 "
 " Navigation
 "
