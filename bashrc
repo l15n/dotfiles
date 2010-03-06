@@ -110,11 +110,18 @@ __rvm_ps1() {
 	fi
 }
 
+# Print a label if bash's parent process is vim
+__vim_ps1() {
+	if ps -p $PPID -o comm= | grep vim$ &>/dev/null; then
+		__cwrap "/vim" 0\;32
+	fi
+}
+
 
 # Prompts
 declare +x PS1
 # On line 2, non-printable chars are surrounded with \[ \] to help line wrapping
-PS1=$'$(__last_status_ps1)$(__cwrap [!\!@\A][j:\j][\w] 47)$(__scm_ps1)$(__rvm_ps1)\n\[$(__cwrap \]\u\[ 1\;35)\]@\[$(__cwrap \]\h\[ 1\;30)\] \$ '
+PS1=$'$(__last_status_ps1)$(__cwrap [!\!@\A][j:\j][\w] 47)$(__scm_ps1)$(__rvm_ps1)\n\[$(__cwrap \]\u\[ 1\;35)\]@\[$(__cwrap \]\h\[ 1\;30)\]$(__vim_ps1) \$ '
 
 # Shell options
 shopt -s checkwinsize
