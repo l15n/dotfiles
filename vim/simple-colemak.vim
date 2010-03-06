@@ -51,11 +51,14 @@ nnoremap T <C-B>
 nnoremap ge gj
 nnoremap gu gk
 
-" Split window controls (direction keys)
+" Moving cursor to other windows
 nnoremap <C-w>n <C-w>j
 nnoremap <C-w>e <C-w>k
-nnoremap <C-w>h <C-w>h
 nnoremap <C-w>i <C-w>l
+" Moving windows around
+nnoremap <C-w>N <C-w>J
+nnoremap <C-w>E <C-w>K
+nnoremap <C-w>I <C-w>L
 " Split window controls (other commands)
 nnoremap <C-w>k <C-w>n
 nnoremap <C-w>o <C-w>o
