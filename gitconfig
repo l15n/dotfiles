@@ -1,6 +1,9 @@
 [user]
 	name = Leonard Chin
 	email = l.g.chin@gmail.com
+[core]
+	;Use a global .gitignore
+	excludesFile = ~/.gitignore
 [color]
 	ui = auto
 [alias]
