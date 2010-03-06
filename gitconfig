@@ -6,6 +6,9 @@
 	excludesFile = ~/.gitignore
 [color]
 	ui = auto
+[diff]
+	mnemonicprefix
+	renames = copies
 [alias]
 	st = status
 	ci = commit -v
@@ -18,7 +21,7 @@
 	amend = commit --amend
 	track = branch --track
 [merge]
-	tool = opendiff
+	tool = vimdiff
 [format]
 	numbered = auto
 [branch]
