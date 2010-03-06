@@ -62,3 +62,52 @@ nnoremap <C-w>I <C-w>L
 " Split window controls (other commands)
 nnoremap <C-w>k <C-w>n
 nnoremap <C-w>o <C-w>o
+
+" Minimal emacs keybindings copied from vimacs.vim
+" Pruned down to the most commonly used bindings.
+"
+" Command line editing
+"
+
+" Navigation
+cmap <C-b> <Left>
+cmap <C-f> <Right>
+cnoremap <M-f> <S-Right>
+cnoremap <M-b> <S-Left>
+cmap <C-a> <Home>
+cmap <C-e> <End>
+
+" Editing
+cmap <M-p> <Up>
+cmap <M-n> <Down>
+cmap <C-d> <Del>
+
+"
+" Navigation
+"
+
+" Insert/Visual/Operator mode maps
+imap <C-b> <Left>
+vmap <C-b> <Left>
+omap <C-b> <Left>
+imap <C-f> <Right>
+vmap <C-f> <Right>
+omap <C-f> <Right>
+imap <C-p> <Up>
+vmap <C-p> <Up>
+omap <C-p> <Up>
+imap <C-n> <Down>
+vmap <C-n> <Down>
+omap <C-n> <Down>
+imap <C-a> <Home>
+vmap <C-a> <Home>
+omap <C-a> <Home>
+imap <C-e> <End>
+vmap <C-e> <End>
+omap <C-e> <End>
+inoremap <C-v> <PageDown>
+vnoremap <C-v> <PageDown>
+onoremap <C-v> <PageDown>
+inoremap <M-v> <PageUp>
+vnoremap <M-v> <PageUp>
+onoremap <M-v> <PageUp>
