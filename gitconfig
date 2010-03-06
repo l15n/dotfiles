@@ -13,7 +13,7 @@
 	both = diff HEAD
 	oneline = log --pretty=oneline --abbrev-commit
 	amend = commit --amend
-  track = branch --track
+	track = branch --track
 [merge]
 	tool = opendiff
 [format]
