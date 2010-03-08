@@ -8,6 +8,12 @@ if [ -f ~/.local_profile.bash ]; then
         . ~/.local_profile.bash
 fi
 
+# Use bash-completion if available
+if [ -f /usr/local/etc/bash_completion ]; then
+	. /usr/local/etc/bash_completion
+fi
+
+
 
 # EDITOR variables
 export EDITOR=`which vim`
