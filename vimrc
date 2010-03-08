@@ -64,7 +64,8 @@ runtime ftplugin/man.vim
 " Plugin-specific settings
 " taglist.vim
 nnoremap <silent> <F8> :TlistToggle<CR>
-let Tlist_Enable_Fold_Column = 1
+let Tlist_Enable_Fold_Column = 0
+let Tlist_Compact_format = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_File_Fold_Auto_Close = 1
 let Tlist_Inc_Winwidth = 0
