@@ -4,7 +4,7 @@ BASEDIR=`dirname $CURRENT_FILE`
 FILES="$BASEDIR/*"
 for f in $FILES
 do
-  if [ $f != "$BASEDIR/install.sh" -a $f != "$BASEDIR/install" ]; then
+  if [ $f != $BASEDIR/*.sh -a $f != "$BASEDIR/install" ]; then
     target="$HOME/.`basename $f`"
     if [ -L $target ]; then
       echo "$target already installed"
