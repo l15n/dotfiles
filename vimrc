@@ -28,6 +28,9 @@ set showmatch
 set autoindent
 " 17. diff mode
 set diffopt=filler,iwhite,vertical
+" 18. reading and writing files
+set ml
+set mls=2
 " 19. reading and writing files
 set autowrite
 set fileformats=unix,mac,dos
