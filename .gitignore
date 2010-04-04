@@ -11,4 +11,9 @@ fish_*history
 localrc.bash
 local_profile.bash
 update_servers.sh
+# Build products
+*.o
+*.bundle
+mkmf.log
+Makefile
 

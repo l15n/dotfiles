@@ -25,6 +25,8 @@
 'Tlist_WinWidth'	taglist.txt	/*'Tlist_WinWidth'*
 :Ack	ack.txt	/*:Ack*
 :AckAdd	ack.txt	/*:AckAdd*
+:CommandT	command-t.txt	/*:CommandT*
+:CommandTFlush	command-t.txt	/*:CommandTFlush*
 :LAck	ack.txt	/*:LAck*
 :LAckAdd	ack.txt	/*:LAckAdd*
 :MatchDebug	matchit.txt	/*:MatchDebug*
@@ -44,8 +46,6 @@
 :TlistUndebug	taglist.txt	/*:TlistUndebug*
 :TlistUnlock	taglist.txt	/*:TlistUnlock*
 :TlistUpdate	taglist.txt	/*:TlistUpdate*
-CommandT	command-t.txt	/*CommandT*
-CommandTFlush	command-t.txt	/*CommandTFlush*
 MatchError	matchit.txt	/*MatchError*
 Tlist_Get_Tag_Prototype_By_Line()	taglist.txt	/*Tlist_Get_Tag_Prototype_By_Line()*
 Tlist_Get_Tagname_By_Line()	taglist.txt	/*Tlist_Get_Tagname_By_Line()*
