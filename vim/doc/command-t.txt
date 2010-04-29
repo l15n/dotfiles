@@ -3,17 +3,18 @@
 CONTENTS                                        *command-t-contents*
 
  1. Introduction            |command-t|
- 2. Requirments             |command-t-requirements|
+ 2. Requirements            |command-t-requirements|
  3. Installation            |command-t-installation|
- 4. Usage                   |command-t-usage|
- 5. Commands                |command-t-commands|
- 6. Mappings                |command-t-mappings|
- 7. Options                 |command-t-options|
- 8. Author                  |command-t-author|
- 9. Website                 |command-t-website|
-10. Donations               |command-t-donations|
-11. License                 |command-t-license|
-12. History                 |command-t-history|
+ 4. Trouble-shooting        |command-t-trouble-shooting|
+ 5. Usage                   |command-t-usage|
+ 6. Commands                |command-t-commands|
+ 7. Mappings                |command-t-mappings|
+ 8. Options                 |command-t-options|
+ 9. Author                  |command-t-author|
+10. Website                 |command-t-website|
+11. Donations               |command-t-donations|
+12. License                 |command-t-license|
+13. History                 |command-t-history|
 
 
 INTRODUCTION                                    *command-t*
@@ -28,18 +29,18 @@ ordered by an algorithm which knows that characters that appear in certain
 locations (for example, immediately after a path separator) should be given
 more weight.
 
-A preview screencast introducing the plug-in can be viewed at:
+Screencasts demonstrating the plug-in can be viewed at:
 
-  https://wincent.com/blog/bringing-textmate-style-command-t-to-vim
+  https://wincent.com/products/command-t
 
 
 REQUIREMENTS                                    *command-t-requirements*
 
-1. VIM compiled with Ruby support
+The plug-in requires VIM compiled with Ruby support, a compatible Ruby
+installation at the operating system level, and a C compiler to build
+the Ruby extension.
 
-Command-T requires VIM to be compiled with Ruby support. (MacVim, for example,
-comes with Ruby support while the command-line version of Vim shipped with Mac
-OS X Snow Leopard does not.)
+1. VIM compiled with Ruby support
 
 You can check for Ruby support by launching VIM with the --version switch:
 
@@ -57,8 +58,29 @@ If your VIM lacks support you'll see an error message like this:
 
   E319: Sorry, the command is not available in this version
 
-The plug-in is developed and tested using the version of Ruby that ships with
-Mac OS X (currently Ruby 1.8.7) but it may work on other versions.
+The version of VIM distributed with Mac OS X does not include Ruby support,
+while MacVim does; it is available from:
+
+  http://code.google.com/p/macvim/
+
+For Windows users, the executable from www.vim.org does include Ruby support.
+
+2. Ruby
+
+In addition to having Ruby support in VIM, your system itself must have a
+compatible Ruby install. In practice this usually means a version of Ruby from
+the 1.8 series, as VIM's support for 1.9 is still not official.
+
+The current version of Mac OS X comes with Ruby 1.8.7.
+
+A suitable Ruby environment for Windows can be installed using RubyInstaller
+available at:
+
+  http://rubyinstaller.org/download.html
+
+If using RubyInstaller be sure to download the installer executable, not the
+7-zip archive. When installing mark the checkbox "Add Ruby executables to your
+PATH" so that VIM can find them.
 
 3. C compiler
 
@@ -66,6 +88,17 @@ Part of Command-T is implemented in C as a Ruby extension for speed, allowing
 it to work responsively even on directory hierarchies containing enormous
 numbers of files. As such, a C compiler is required in order to build the
 extension and complete the installation.
+
+On Mac OS X, this can be obtained by installing the Xcode Tools that come on
+the Mac OS X install disc.
+
+On Windows, the RubyInstaller Development Kit can be used to conveniently
+install the necessary tool chain:
+
+  http://wiki.github.com/oneclick/rubyinstaller/development-kit
+
+To use the Development Kit extract the archive contents to your C:\Ruby
+folder.
 
 
 INSTALLATION                                    *command-t-installation*
@@ -88,6 +121,23 @@ you can build the extension with:
   cd ~/.vim/ruby/command-t
   ruby extconf.rb
   make
+
+
+TROUBLE-SHOOTING                                *command-t-trouble-shooting*
+
+Most installation problems are caused by a mismatch between the version of
+Ruby on the host operating system, and the version of Ruby that VIM itself
+linked against at compile time. For example, if one is 32-bit and the other is
+64-bit, or one is from the Ruby 1.9 series and the other is from the 1.8
+series, then the plug-in is not likely to work.
+
+As such, on Mac OS X, I recommend using the standard Ruby that comes with the
+system (currently 1.8.7) along with the latest snapshot of MacVim (currently
+snapshot 52).
+
+On Windows, I recommend using the version 1.8.7 RubyInstaller and the
+corresponding RubyInstaller Development Kit linked to above, along with the
+standard (32-bit) version of VIM that can be downloaded from www.vim.org.
 
 
 USAGE                                           *command-t-usage*
@@ -172,7 +222,6 @@ COMMANDS                                        *command-t-commands*
                 command.
 
                                                 *:CommandTFlush*
-                                                *command-t-flush*
 |:CommandTFlush|Instructs the plug-in to flush its path cache, causing
                 the directory to be rescanned for new or deleted paths
                 the next time the match window is shown. In addition, all
@@ -203,6 +252,11 @@ binding of Command-T to "New Tab":
     map <D-t> :CommandT<CR>
   endif
 
+When the Command-T window is active a number of other additional mappings
+become available for doing things like moving between and selecting matches.
+These are fully described above in the USAGE section, and settings for
+overriding the mappings are listed below under OPTIONS.
+
 
 OPTIONS                                         *command-t-options*
 
@@ -211,29 +265,33 @@ the plug-in. To set an option, you include a line like this in your ~/.vimrc:
 
     let g:CommandTMaxFiles=20000
 
+To have Command-T pick up new settings immediately (that is, without having
+to restart VIM) you can issue the |:CommandTFlush| command after making
+changes via |:let|.
+
 Following is a list of all available options:
 
-                                                *command-t-max-files*
+                                                *g:CommandTMaxFiles*
   |g:CommandTMaxFiles|                           number (default 10000)
 
       The maximum number of files that will be considered when scanning the
       current directory. Upon reaching this number scanning stops.
 
-                                                *command-t-max-depth*
+                                                *g:CommandTMaxDepth*
   |g:CommandTMaxDepth|                           number (default 15)
 
       The maximum depth (levels of recursion) to be explored when scanning the
       current directory. Any directories at levels beyond this depth will be
       skipped.
 
-                                                *command-t-max-height*
+                                                *g:CommandTMaxHeight*
   |g:CommandTMaxHeight|                          number (default: 0)
 
       The maximum height in lines the match window is allowed to expand to.
       If set to 0, the window will occupy as much of the available space as
       needed to show matching entries.
 
-                                                *command-t-always-show-dot-files*
+                                                *g:CommandTAlwaysShowDotFiles*
   |g:CommandTAlwaysShowDotFiles|                 boolean (default: 0)
 
       By default Command-T will show dot-files only if the entered search
@@ -242,7 +300,7 @@ Following is a list of all available options:
       matching dot-files in the match list regardless of whether the search
       string contains a dot. See also |g:CommandTNeverShowDotFiles|.
 
-                                                *command-t-never-show-dot-files*
+                                                *g:CommandTNeverShowDotFiles*
   |g:CommandTNeverShowDotFiles|                  boolean (default: 0)
 
       By default Command-T will show dot-files if the entered search string
@@ -252,7 +310,7 @@ Following is a list of all available options:
       setting and |g:CommandTAlwaysShowDotFiles| to true, and if you do so VIM
       will suffer from headaches, nervous twitches, and sudden mood swings.
 
-                                                *command-t-scan-dot-directories*
+                                                *g:CommandTScanDotDirectories*
   |g:CommandTScanDotDirectories|                 boolean (default: 0)
 
       Normally Command-T will not recurse into "dot-directories" (directories
@@ -271,7 +329,7 @@ Following is a list of all available options:
         :cd ~/.vim
         :CommandT
 
-                                                *command-t-match-window-at-top*
+                                                *g:CommandTMatchWindowAtTop*
   |g:CommandTMatchWindowAtTop|                   boolean (default: 0)
 
       When this settings is off (the default) the match window will appear at
@@ -290,45 +348,80 @@ window, you would add the following to your ~/.vimrc:
 
 Following is a list of all map settings:
 
-   Setting                                      Default mapping(s)
+                              Setting   Default mapping(s)
 
-  |g:CommandTBackspaceMap|                      <BS>
+                                       *g:CommandTBackspaceMap*
+              |g:CommandTBackspaceMap|  <BS>
+      Delete the character at the current cursor position
 
-  |g:CommandTDeleteMap|                         <Del>
+                                       *g:CommandTDeleteMap*
+                 |g:CommandTDeleteMap|  <Del>
+                 Delete the character to the right of the current cursor position
 
-  |g:CommandTAcceptSelectionMap|                <CR>
+                                       *g:CommandTAcceptSelectionMap*
+        |g:CommandTAcceptSelectionMap|  <CR>
+        Accept the currently selected item (opens in current window)
 
-  |g:CommandTAcceptSelectionSplitMap|           <C-CR>
-                                                <C-s>
+                                       *g:CommandTAcceptSelectionSplitMap*
+   |g:CommandTAcceptSelectionSplitMap|  <C-CR>
+                                        <C-s>
+                                        Accept the currently selected item
+                                        (opens in split window)
 
-  |g:CommandTAcceptSelectionTabMap|             <C-t>
+                                       *g:CommandTAcceptSelectionTabMap*
+     |g:CommandTAcceptSelectionTabMap|  <C-t>
+     Accept the currently selected item (opens in tab)
 
-  |g:CommandTAcceptSelectionVSplitMap|          <C-v>
+                                       *g:CommandTAcceptSelectionVSplitMap*
+  |g:CommandTAcceptSelectionVSplitMap|  <C-v>
+Accept the currently selected item (opens in vertical split)
 
-  |g:CommandTToggleFocusMap|                    <Tab>
+                                       *g:CommandTToggleFocusMap*
+            |g:CommandTToggleFocusMap|  <Tab>
+Toggle keyboard focus between prompt and match listing
 
-  |g:CommandTCancelMap|                         <C-c>
-                                                <Esc> (not on all terminals)
+                                       *g:CommandTCancelMap*
+                 |g:CommandTCancelMap|  <C-c>
+                                        <Esc> (not on all terminals)
+Dismiss the Command-T prompt and match listing
 
-  |g:CommandTSelectNextMap|                     <C-n>
-                                                <C-j>
-                                                <Down>
+                                       *g:CommandTSelectNextMap*
+             |g:CommandTSelectNextMap|  <C-n>
+                                        <C-j>
+                                        <Down>
+Select next match in match listing
 
-  |g:CommandTSelectPrevMap|                     <C-p>
-                                                <C-k>
-                                                <Up>
 
-  |g:CommandTClearMap|                          <C-u>
+                                       *g:CommandTSelectPrevMap*
+             |g:CommandTSelectPrevMap|  <C-p>
+                                        <C-k>
+                                        <Up>
+Select previous match in match listing
 
-  |g:CommandTCursorLeftMap|                     <Left>
-                                                <C-h>
 
-  |g:CommandTCursorRightMap|                    <Right>
-                                                <C-l>
+                                       *g:CommandTClearMap*
+                  |g:CommandTClearMap|  <C-u>
+Clear all text from the prompt
 
-  |g:CommandTCursorEndMap|                      <C-e>
 
-  |g:CommandTCursorStartMap|                    <C-a>
+                                       *g:CommandTCursorLeftMap*
+             |g:CommandTCursorLeftMap|  <Left>
+                                        <C-h>
+Move the cursor one character to the left within the prompt
+
+
+                                       *g:CommandTCursorRightMap*
+            |g:CommandTCursorRightMap|  <Right>
+                                        <C-l>
+Move the cursor one character to the right within the prompt
+
+                                       *g:CommandTCursorEndMap*
+              |g:CommandTCursorEndMap|  <C-e>
+Move the cursor to the end (far right) of the prompt
+
+
+                                       *g:CommandTCursorStartMap*
+            |g:CommandTCursorStartMap|  <C-a>
 
 In addition to the options provided by Command-T itself, some of VIM's own
 settings can be used to control behavior:
@@ -425,6 +518,17 @@ POSSIBILITY OF SUCH DAMAGE.
 
 
 HISTORY                                         *command-t-history*
+
+0.6 (28 April 2010)
+
+- |:CommandT| now accepts an optional parameter to specify the starting
+  directory, temporarily overriding the usual default of VIM's |:pwd|
+- fix truncated paths when operating from root directory
+
+0.5.1 (11 April 2010)
+
+- fix for Ruby 1.9 compatibility regression introduced in 0.5
+- documentation enhancements, specifically targetted at Windows users
 
 0.5 (3 April 2010)
 
