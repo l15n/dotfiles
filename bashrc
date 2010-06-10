@@ -117,13 +117,14 @@ __vim_ps1() {
 	fi
 }
 
+# Show current process as title for GNU screen
 __screen_title() {
 	printf "\ek\e\\"
 }
 # Prompts
 declare +x PS1
 # On line 2, non-printable chars are surrounded with \[ \] to help line wrapping
-PS1=$'$(__last_status_ps1)$(__cwrap [!\!@\A][j:\j][\w] 47)$(__scm_ps1)$(__rvm_ps1)\n\[$(__cwrap \]\u\[ 1\;35)\]@\[$(__cwrap \]\h\[ 1\;30)\]$(__vim_ps1) \$ $(__screen_title)'
+PS1=$'$(__last_status_ps1)$(__cwrap [!\!@\A][j:\j][\w] 47)$(__scm_ps1)$(__rvm_ps1)\n\[$(__cwrap \]\u\[ 1\;35)\]@\[$(__cwrap \]\h\[ 1\;30)\]$(__vim_ps1) \$ \[$(__screen_title)\]'
 
 # Shell options
 shopt -s checkwinsize
