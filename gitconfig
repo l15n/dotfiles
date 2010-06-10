@@ -9,6 +9,7 @@
 [diff]
 	mnemonicprefix
 	renames = copies
+	tool = Kaleidoscope
 [alias]
 	st = status
 	ci = commit -v
@@ -26,3 +27,7 @@
 	numbered = auto
 [branch]
 	autosetupmerge = true
+[difftool "Kaleidoscope"]
+	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
