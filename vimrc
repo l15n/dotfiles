@@ -3,6 +3,8 @@
 set nocompatible
 " 2. moving around, searching and patterns
 set incsearch
+set ignorecase
+set smartcase
 " 4. displaying text
 set scrolloff=999 " Lock cursor line to middle of screen ("Typewriter" scrolling")
 set number
