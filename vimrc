@@ -13,6 +13,9 @@ set hlsearch
 set cursorline
 " 6. multiple windows
 set laststatus=2
+" Custom statusline from:
+" http://got-ravings.blogspot.com/2008/08/vim-pr0n-making-statuslines-that-own.html
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 " 10. GUI
 if has("gui_running")
   set guioptions-=m
@@ -39,10 +42,9 @@ set autowrite
 set fileformats=unix,mac,dos
 " 21. command line editing
 set history=100
-" 25. multi-byte characters
+" 24. multi-byte characters
 " Treat ambiguous double-width characters (e.g.□星♪ etc) correctly
 set ambiwidth=double
-
 " Add sjis to fileencodings
 set fileencodings=ucs-bom,utf-8,sjis,default,latin1
 
