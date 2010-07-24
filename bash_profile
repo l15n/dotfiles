@@ -19,4 +19,5 @@ fi
 export EDITOR=`which vim`
 export SVN_EDITOR=`which vim`
 export GIT_EDITOR=`which vim`
+export PATH=$PATH:$HOME/bin
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
