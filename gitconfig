@@ -11,14 +11,14 @@
 	renames = copies
 	tool = Kaleidoscope
 [alias]
-	st = status
+	st = status -sb
 	ci = commit -v
 	cm = commit -m
 	co = checkout
 	staged = diff --cached
 	unstaged = diff
 	both = diff HEAD
-	oneline = log --pretty=oneline --abbrev-commit
+	oneline = log --pretty=oneline --abbrev-commit --decorate
 	amend = commit --amend
 	track = branch --track
 [merge]
