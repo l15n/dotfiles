@@ -101,7 +101,7 @@ __scm_ps1() {
 # Print ruby version selected by rvm.
 # System default: black bg RVM: Red
 __rvm_ps1() {
-	if [[ -s /Users/lchin/.rvm/scripts/rvm ]] ; then
+	if [[ -s $HOME/.rvm/scripts/rvm ]] ; then
 		local rvm_ps1=`~/.rvm/bin/rvm-prompt i v`
 	fi
 	if [ $rvm_ps1 ]; then
