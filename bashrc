@@ -6,6 +6,7 @@ alias s="svn"
 alias i="irb"
 alias r="rak"
 alias svnksdiff="svn diff --diff-cmd=ksdiff-svnwrapper"
+alias git="hub"
 # Aliases using OS dependent flags
 if [ $OSTYPE = 'linux-gnu' ]; then
 	alias ls="ls --color=always"
