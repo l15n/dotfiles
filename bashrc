@@ -15,10 +15,10 @@ else
 	# Assume Darwin/BSD if not linux-gnu
 	alias ls="ls -G"
 	alias l="ls -lhGa"
+	# Don't use bundled vim on OS X
+	alias vim="/usr/local/bin/vim"
 fi
 
-# Workaround Snow Leopard vim exit code problem
-alias vim=`which vim`
 
 # Get local (not shared across machines) settings
 # Primarily for local aliases
