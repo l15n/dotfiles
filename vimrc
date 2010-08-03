@@ -78,6 +78,6 @@ let Tlist_Inc_Winwidth = 0
 let Tlist_Show_One_File = 1
 let Tlist_Use_Right_Window = 1
 " netrw
-let g:netrw_liststyle=3
+let g:netrw_liststyle=1
 let g:netrw_cursorline=3
-let g:netrw_keepdir=0
+let g:netrw_keepdir=1
