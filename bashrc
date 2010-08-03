@@ -7,6 +7,7 @@ alias i="irb"
 alias r="rak"
 alias svnksdiff="svn diff --diff-cmd=ksdiff-svnwrapper"
 alias git="hub"
+
 # Aliases using OS dependent flags
 if [ $OSTYPE = 'linux-gnu' ]; then
 	alias ls="ls --color=always"
@@ -19,6 +20,9 @@ else
 	alias vim="/usr/local/bin/vim"
 fi
 
+# Shell options
+shopt -s checkwinsize
+shopt -s cdspell
 
 # Get local (not shared across machines) settings
 # Primarily for local aliases
@@ -123,14 +127,11 @@ __vim_ps1() {
 __screen_title() {
 	printf "\ek\e\\"
 }
+
+# Load RVM just before the prompt
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 # Prompts
 declare +x PS1
 # On line 2, non-printable chars are surrounded with \[ \] to help line wrapping
 PS1=$'$(__last_status_ps1)$(__cwrap [!\!@\A][j:\j][\w] 47)$(__scm_ps1)$(__rvm_ps1)\n\[$(__cwrap \]\u\[ 1\;35)\]@\[$(__cwrap \]\h\[ 1\;30)\]$(__vim_ps1) \$ \[$(__screen_title)\]'
-
-# Shell options
-shopt -s checkwinsize
-shopt -s cdspell
-# RVM
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
