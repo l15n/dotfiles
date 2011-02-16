@@ -22,6 +22,8 @@ else
 fi
 export PATH=$PATH:$HOME/bin
 
+export LANG=en_US.UTF-8
+
 # Get the aliases and functions after login setup
 if [ -f "$HOME/.bashrc" ]; then
         source "$HOME/.bashrc"
