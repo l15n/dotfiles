@@ -4,7 +4,10 @@
 alias g="git"
 alias s="svn"
 alias i="irb"
-alias r="rak"
+alias r="rails"
+alias a="ack"
+alias b="bundle"
+alias v="vim"
 alias svnksdiff="svn diff --diff-cmd=ksdiff-svnwrapper"
 alias git="hub"
 
