@@ -9,7 +9,7 @@
 [diff]
 	mnemonicprefix
 	renames = copies
-	tool = Kaleidoscope
+	ignoreSubmodules = dirty
 [alias]
 	st = status -sb
 	ci = commit -v
