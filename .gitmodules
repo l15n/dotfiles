@@ -1,0 +1,27 @@
+[submodule "vim/bundle/fugitive"]
+	path = vim/bundle/fugitive
+	url = http://github.com/tpope/vim-fugitive.git
+[submodule "vim/bundle/ruby"]
+	path = vim/bundle/ruby
+	url = git://github.com/vim-ruby/vim-ruby.git
+[submodule "vim/bundle/rails"]
+	path = vim/bundle/rails
+	url = git://github.com/tpope/vim-rails.git
+[submodule "vim/bundle/snipmate"]
+	path = vim/bundle/snipmate
+	url = git://github.com/msanders/snipmate.vim.git
+[submodule "vim/bundle/surround"]
+	path = vim/bundle/surround
+	url = git://github.com/tpope/vim-surround.git
+[submodule "vim/bundle/command_t"]
+	path = vim/bundle/command_t
+	url = git://git.wincent.com/command-t.git
+[submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/matchit"]
+	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/matchit
+	url = git://github.com/tsaleh/vim-matchit.git
+[submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/cucumber"]
+	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/cucumber
+	url = https://github.com/tpope/vim-cucumber.git
+[submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/php"]
+	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/php
+	url = https://github.com/vim-scripts/php.vim.git

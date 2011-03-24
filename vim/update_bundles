@@ -1,0 +1,69 @@
+#!/usr/bin/env ruby
+
+# List of bundles to install.
+# Assume that strings are git submodules, arrays are vim.org scripts
+BUNDLES = {
+	fugitive:	"git://github.com/tpope/vim-fugitive.git",
+	ruby:		"git://github.com/vim-ruby/vim-ruby.git",
+	rails:		"git://github.com/tpope/vim-rails.git",
+  snipmate: "git://github.com/msanders/snipmate.vim.git",
+  surround: "git://github.com/tpope/vim-surround.git",
+  command_t: "git://git.wincent.com/command-t.git",
+  matchit: "git://github.com/tsaleh/vim-matchit.git",
+  cucumber: "https://github.com/tpope/vim-cucumber.git",
+  php: "https://github.com/vim-scripts/php.vim.git",
+	gist:		[12732, 'plugin'],
+  jquery: [12107, 'syntax'],
+  navajo: [190, 'colors']
+}
+
+BUNDLES_DIR	= File.expand_path(File.join(File.dirname(__FILE__), 'bundle'))
+GIT_ROOT	= File.expand_path(File.join(File.dirname(__FILE__), '..'))
+
+require 'fileutils'
+require 'open-uri'
+
+def plugin_dir(plugin)
+  File.join(BUNDLES_DIR, plugin.to_s)
+end
+
+def install_git_submodule(plugin, location)
+  if Dir.exists? plugin_dir(plugin)
+    puts "Updating #{plugin}"
+    FileUtils.cd(plugin_dir(plugin)) do
+      system 'git pull'
+    end
+  else
+    puts "Installing #{plugin}"
+    FileUtils.cd(GIT_ROOT) do
+      system "git submodule add #{location} #{plugin_dir(plugin)}"
+    end
+  end
+end
+
+def install_from_vim_org(plugin, location)
+  if Dir.exists? plugin_dir(plugin)
+    puts "Updating #{plugin}"
+    system "rm -rf #{plugin_dir(plugin)}"
+  else
+    puts "Installing #{plugin}"
+  end
+  local_file = File.join(plugin_dir(plugin), location[1], "#{plugin}.vim")
+  FileUtils.mkdir_p(File.dirname(local_file))
+  File.open(local_file, "w") do |file|
+    file << open("http://www.vim.org/scripts/download_script.php?src_id=#{location[0]}").read
+  end
+end
+
+# See which plugins are already installed.
+BUNDLES.each do |plugin, location|
+  case location
+  when String
+    install_git_submodule(plugin, location)
+  when Array
+    install_from_vim_org(plugin, location)
+  else
+    puts "Warning: Settings for #{plugin} are invalid:"
+    p location
+  end
+end

@@ -1,3 +1,8 @@
+" Pathogen loads vim plugins from ~/.vim/bundle
+filetype off
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
 " Vim options, categorized like :options
 " 1. Important
 set nocompatible
