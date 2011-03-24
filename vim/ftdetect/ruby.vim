@@ -15,3 +15,5 @@ au BufNewFile,BufRead .irbrc,irbrc			set filetype=ruby
 
 " eRuby
 au BufNewFile,BufRead *.erb,*.rhtml			set filetype=eruby
+
+au BufNewFile,BufRead [gG]emfile,[gG]emfile.lock	set filetype=ruby
