@@ -12,6 +12,8 @@ BUNDLES = {
   matchit: "git://github.com/tsaleh/vim-matchit.git",
   cucumber: "https://github.com/tpope/vim-cucumber.git",
   php: "https://github.com/vim-scripts/php.vim.git",
+  endwise: "git://github.com/tpope/vim-endwise.git",
+  unimpaired: "https://github.com/tpope/vim-unimpaired.git",
 	gist:		[12732, 'plugin'],
   jquery: [12107, 'syntax'],
   navajo: [190, 'colors']
@@ -42,13 +44,13 @@ def install_git_submodule(plugin, location)
 end
 
 def install_from_vim_org(plugin, location)
+  local_file = File.join(plugin_dir(plugin), location[1], "#{plugin}.vim")
   if Dir.exists? plugin_dir(plugin)
     puts "Updating #{plugin}"
-    system "rm -rf #{plugin_dir(plugin)}"
+    system "rm #{local_file}"
   else
     puts "Installing #{plugin}"
   end
-  local_file = File.join(plugin_dir(plugin), location[1], "#{plugin}.vim")
   FileUtils.mkdir_p(File.dirname(local_file))
   File.open(local_file, "w") do |file|
     file << open("http://www.vim.org/scripts/download_script.php?src_id=#{location[0]}").read

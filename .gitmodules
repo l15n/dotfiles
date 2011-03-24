@@ -25,3 +25,9 @@
 [submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/php"]
 	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/php
 	url = https://github.com/vim-scripts/php.vim.git
+[submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/unimpaired"]
+	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/endwise"]
+	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/endwise
+	url = git://github.com/tpope/vim-endwise.git
