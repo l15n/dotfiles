@@ -83,3 +83,9 @@ let Tlist_Use_Right_Window = 1
 let g:netrw_liststyle=1
 let g:netrw_cursorline=3
 let g:netrw_keepdir=1
+
+" Workaround for cursor key problems in screen/tmux
+map <Esc>[A <Up>
+map <Esc>[B <Down>
+map <Esc>[C <Right>
+map <Esc>[D <Left>
