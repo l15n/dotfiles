@@ -31,3 +31,6 @@
 [submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/endwise"]
 	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/endwise
 	url = git://github.com/tpope/vim-endwise.git
+[submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/ack"]
+	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/ack
+	url = https://github.com/mileszs/ack.vim.git
