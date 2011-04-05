@@ -7,15 +7,15 @@
 [submodule "vim/bundle/rails"]
 	path = vim/bundle/rails
 	url = git://github.com/tpope/vim-rails.git
+[submodule "vim/bundle/command_t"]
+	path = vim/bundle/command_t
+	url = git://git.wincent.com/command-t.git
 [submodule "vim/bundle/snipmate"]
 	path = vim/bundle/snipmate
 	url = git://github.com/msanders/snipmate.vim.git
 [submodule "vim/bundle/surround"]
 	path = vim/bundle/surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "vim/bundle/command_t"]
-	path = vim/bundle/command_t
-	url = git://git.wincent.com/command-t.git
 [submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/matchit"]
 	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/matchit
 	url = git://github.com/tsaleh/vim-matchit.git
@@ -34,3 +34,9 @@
 [submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/ack"]
 	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
+[submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/scss"]
+	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/scss
+	url = https://github.com/cakebaker/scss-syntax.vim.git
+[submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/html5"]
+	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/html5
+	url = https://github.com/othree/html5.vim.git
