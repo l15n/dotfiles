@@ -57,7 +57,10 @@ filetype plugin indent on
 syntax on
 " default colors
 " Navajo colorscheme http://www.vim.org/scripts/script.php?script_id=190
-color navajo
+" color navajo
+" Solarized Light
+set background=light
+colorscheme solarized
 
 " Highlight lines over 120 characters in length whenever a window opens
 " From http://vim.wikia.com/wiki/Highlight_long_lines
