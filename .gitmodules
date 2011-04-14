@@ -16,30 +16,54 @@
 [submodule "vim/bundle/surround"]
 	path = vim/bundle/surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/matchit"]
-	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/matchit
+[submodule "vim/bundle/matchit"]
+	path = vim/bundle/matchit
 	url = git://github.com/tsaleh/vim-matchit.git
-[submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/cucumber"]
-	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/cucumber
+[submodule "vim/bundle/cucumber"]
+	path = vim/bundle/cucumber
 	url = https://github.com/tpope/vim-cucumber.git
-[submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/php"]
-	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/php
+[submodule "vim/bundle/php"]
+	path = vim/bundle/php
 	url = https://github.com/vim-scripts/php.vim.git
-[submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/unimpaired"]
-	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/unimpaired
+[submodule "vim/bundle/unimpaired"]
+	path = vim/bundle/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
-[submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/endwise"]
-	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/endwise
+[submodule "vim/bundle/endwise"]
+	path = vim/bundle/endwise
 	url = git://github.com/tpope/vim-endwise.git
-[submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/ack"]
-	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/ack
+[submodule "vim/bundle/ack"]
+	path = vim/bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
-[submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/scss"]
-	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/scss
+[submodule "vim/bundle/scss"]
+	path = vim/bundle/scss
 	url = https://github.com/cakebaker/scss-syntax.vim.git
-[submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/html5"]
-	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/html5
+[submodule "vim/bundle/html5"]
+	path = vim/bundle/html5
 	url = https://github.com/othree/html5.vim.git
-[submodule "/Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/solarized"]
-	path = /Users/lchin/dwango/leonard_chin/dotfiles/vim/bundle/solarized
+[submodule "vim/bundle/solarized"]
+	path = vim/bundle/solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/bundle/ri_vim"]
+	path = vim/bundle/ri_vim
+	url = git://github.com/vim-scripts/ri-browser.git 
+[submodule "vim/bundle/javascript"]
+	path = vim/bundle/javascript
+	url = git://github.com/pangloss/vim-javascript.git
+[submodule "vim/bundle/coffeescript"]
+	path = vim/bundle/coffeescript
+	url = git://github.com/kchmck/vim-coffee-script.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = git://github.com/ervandew/supertab.git
+[submodule "vim/bundle/aligh"]
+	path = vim/bundle/aligh
+	url = https://github.com/tsaleh/vim-align.git
+[submodule "vim/bundle/indent_object"]
+	path = vim/bundle/indent_object
+	url = git://github.com/michaeljsmith/vim-indent-object.git
+[submodule "vim/bundle/nerdcommenter"]
+	path = vim/bundle/nerdcommenter
+	url = git://github.com/ddollar/nerdcommenter.git
+[submodule "vim/bundle/conque"]
+	path = vim/bundle/conque
+	url = https://github.com/rson/vim-conque.git

@@ -18,31 +18,40 @@ BUNDLES = {
   scss: "https://github.com/cakebaker/scss-syntax.vim.git",
   html5: "https://github.com/othree/html5.vim.git",
   solarized: "git://github.com/altercation/vim-colors-solarized.git",
+  ri_vim: "git://github.com/l15n/ri-browser.git",
+  javascript: "git://github.com/pangloss/vim-javascript.git",
+  coffeescript: "git://github.com/kchmck/vim-coffee-script.git",
+  supertab: "git://github.com/ervandew/supertab.git",
+  aligh: "https://github.com/tsaleh/vim-align.git",
+  indent_object: "git://github.com/michaeljsmith/vim-indent-object.git",
+  nerdcommenter: "git://github.com/ddollar/nerdcommenter.git",
+  conque: "https://github.com/rson/vim-conque.git",
 	gist:		[12732, 'plugin'],
   jquery: [12107, 'syntax'],
   navajo: [190, 'colors']
 }
 
-BUNDLES_DIR	= File.expand_path(File.join(File.dirname(__FILE__), 'bundle'))
-GIT_ROOT	= File.expand_path(File.join(File.dirname(__FILE__), '..'))
-
 require 'fileutils'
 require 'open-uri'
+require 'pathname'
+
+BUNDLES_DIR = Pathname.new(File.join(File.dirname(__FILE__), 'bundle'))
+GIT_ROOT	= Pathname.new(File.join(File.dirname(__FILE__), '..'))
 
 def plugin_dir(plugin)
-  File.join(BUNDLES_DIR, plugin.to_s)
+  BUNDLES_DIR.join(plugin.to_s)
 end
 
 def install_git_submodule(plugin, location)
   if Dir.exists? plugin_dir(plugin)
     puts "Updating #{plugin}"
-    FileUtils.cd(plugin_dir(plugin)) do
+    FileUtils.cd(plugin_dir(plugin).to_s) do
       system 'git pull'
     end
   else
     puts "Installing #{plugin}"
     FileUtils.cd(GIT_ROOT) do
-      system "git submodule add #{location} #{plugin_dir(plugin)}"
+      system "git submodule add #{location} #{plugin_dir(plugin).relative_path_from(GIT_ROOT)}"
     end
   end
 end
