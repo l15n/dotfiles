@@ -43,7 +43,7 @@ __last_status_ps1() {
   LAST="$?";
   if [ "$LAST" -ne "0" ]
   then
-     printf $'\e[1m\e[41m\e[33m' # red bg/white fg
+     printf $'\e[1m\e[41m\e[37m' # red bg/white fg
      printf "Exited with $LAST!"
      printf $'\e[0m' # reset colors
   fi
@@ -60,6 +60,9 @@ __last_status_ps1() {
 # Purple      0;35     Light Purple  1;35
 # Brown       0;33     Yellow        1;33
 # Light Gray  0;37     White         1;37
+#
+# For background colors, replace 3 with 4.
+# e.g. Red bg color is 0;41
 # 
 # Usage: __cwrap text color1 [color2 [color3 ... ]]
 # For 'bold' colors (second column), specify '1' separately.
@@ -136,5 +139,4 @@ __screen_title() {
 # Prompts
 declare +x PS1
 # On line 2, non-printable chars are surrounded with \[ \] to help line wrapping
-PS1=$'$(__last_status_ps1)$(__cwrap [!\!@\A][j:\j][\w] 47)$(__scm_ps1)$(__rvm_ps1)\n\[$(__cwrap \]\u\[ 1\;35)\]@\[$(__cwrap \]\h\[ 0\;33)\]$(__vim_ps1) \$ \[$(__screen_title)\]'
-
+PS1=$'$(__last_status_ps1)$(__cwrap [!\!@\A][j:\j][\w] 1\;33)$(__scm_ps1)$(__rvm_ps1)\n\[$(__cwrap \]\u\[ 1\;35)\]@\[$(__cwrap \]\h\[ 0\;33)\]$(__vim_ps1) \$ \[$(__screen_title)\]' 
