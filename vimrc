@@ -1,7 +1,7 @@
 " Pathogen loads vim plugins from ~/.vim/bundle
 filetype off
-call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 " Vim options, categorized like :options
 " 1. Important
@@ -59,7 +59,12 @@ syntax on
 " Navajo colorscheme http://www.vim.org/scripts/script.php?script_id=190
 " color navajo
 " Solarized Light
-set background=light
+
+if has('gui-running')
+	set background=light
+else
+	set background=dark
+endif
 colorscheme solarized
 
 " Highlight lines over 120 characters in length whenever a window opens
