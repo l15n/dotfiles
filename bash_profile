@@ -21,7 +21,7 @@ else
 	export GIT_EDITOR="/usr/local/bin/vim"
 fi
 export PATH=$PATH:$HOME/bin
-
+export TERM=xterm-256color
 export LANG=en_US.UTF-8
 
 # Get the aliases and functions after login setup
