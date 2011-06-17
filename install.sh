@@ -19,6 +19,7 @@ do
   fi
 done
 mkdir -p $HOME/bin
+mkdir -p $HOME/opt/bin
 if [ ! -x "$HOME/bin/ack" ]; then
   echo "Installing ack (standalone)"
   curl http://betterthangrep.com/ack-standalone > $HOME/bin/ack
@@ -27,6 +28,6 @@ fi
 
 if [ ! -x "$HOME/bin/hub" ]; then
   echo "Installing hub (standalone)"
-  curl http://defunkt.github.com/hub/standalone -so $HOME/bin/hub
+  curl http://defunkt.io/hub/standalone -sLo $HOME/bin/hub
   chmod 0755 $HOME/bin/hub
 fi

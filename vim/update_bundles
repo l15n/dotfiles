@@ -3,40 +3,41 @@
 # List of bundles to install.
 # Assume that strings are git submodules, arrays are vim.org scripts
 BUNDLES = {
-	fugitive:	"git://github.com/tpope/vim-fugitive.git",
-	ruby:		"git://github.com/vim-ruby/vim-ruby.git",
-	rails:		"git://github.com/tpope/vim-rails.git",
-  snipmate: "git://github.com/msanders/snipmate.vim.git",
-  surround: "git://github.com/tpope/vim-surround.git",
-  command_t: "git://git.wincent.com/command-t.git",
-  matchit: "git://github.com/tsaleh/vim-matchit.git",
-  cucumber: "https://github.com/tpope/vim-cucumber.git",
-  php: "https://github.com/vim-scripts/php.vim.git",
-  endwise: "git://github.com/tpope/vim-endwise.git",
-  unimpaired: "https://github.com/tpope/vim-unimpaired.git",
-  ack: "https://github.com/mileszs/ack.vim.git",
-  scss: "https://github.com/cakebaker/scss-syntax.vim.git",
-  html5: "https://github.com/othree/html5.vim.git",
-  solarized: "git://github.com/altercation/vim-colors-solarized.git",
-  ri_vim: "git://github.com/l15n/ri-browser.git",
-  javascript: "git://github.com/pangloss/vim-javascript.git",
-  coffeescript: "git://github.com/kchmck/vim-coffee-script.git",
-  supertab: "git://github.com/ervandew/supertab.git",
-  aligh: "https://github.com/tsaleh/vim-align.git",
-  indent_object: "git://github.com/michaeljsmith/vim-indent-object.git",
-  nerdcommenter: "git://github.com/ddollar/nerdcommenter.git",
-  conque: "https://github.com/rson/vim-conque.git",
-	gist:		[12732, 'plugin'],
-  jquery: [12107, 'syntax'],
-  navajo: [190, 'colors']
+	"fugitive" =>	"git://github.com/tpope/vim-fugitive.git",
+	"ruby" =>		"git://github.com/vim-ruby/vim-ruby.git",
+	"rails" =>		"git://github.com/tpope/vim-rails.git",
+  "snipmate" => "git://github.com/msanders/snipmate.vim.git",
+  "surround" => "git://github.com/tpope/vim-surround.git",
+  "command_t" => "git://git.wincent.com/command-t.git",
+  "matchit" => "git://github.com/tsaleh/vim-matchit.git",
+  "cucumber" => "https://github.com/tpope/vim-cucumber.git",
+  "php" => "https://github.com/vim-scripts/php.vim.git",
+  "endwise" => "git://github.com/tpope/vim-endwise.git",
+  "unimpaired" => "https://github.com/tpope/vim-unimpaired.git",
+  "ack" => "https://github.com/mileszs/ack.vim.git",
+  "scss" => "https://github.com/cakebaker/scss-syntax.vim.git",
+  "html5" => "https://github.com/othree/html5.vim.git",
+  "solarized" => "git://github.com/altercation/vim-colors-solarized.git",
+  "ri_vim" => "git://github.com/l15n/ri-browser.git",
+  "javascript" => "git://github.com/pangloss/vim-javascript.git",
+  "coffeescript" => "git://github.com/kchmck/vim-coffee-script.git",
+  "supertab" => "git://github.com/ervandew/supertab.git",
+  "aligh" => "https://github.com/tsaleh/vim-align.git",
+  "indent_object" => "git://github.com/michaeljsmith/vim-indent-object.git",
+  "nerdcommenter" => "git://github.com/ddollar/nerdcommenter.git",
+  "conque" => "https://github.com/rson/vim-conque.git",
+  "cocoa" => "https://github.com/msanders/cocoa.vim.git",
+  "gist" => "https://github.com/mattn/gist-vim.git",
+  "jquery" => [12107, 'syntax'],
+  "navajo" => [190, 'colors']
 }
 
 require 'fileutils'
 require 'open-uri'
 require 'pathname'
 
-BUNDLES_DIR = Pathname.new(File.join(File.dirname(__FILE__), 'bundle'))
-GIT_ROOT	= Pathname.new(File.join(File.dirname(__FILE__), '..'))
+BUNDLES_DIR = Pathname.new(File.expand_path(File.join(File.dirname(__FILE__), 'bundle')))
+GIT_ROOT	= Pathname.new(File.expand_path(File.join(File.dirname(__FILE__), '..')))
 
 def plugin_dir(plugin)
   BUNDLES_DIR.join(plugin.to_s)
@@ -51,7 +52,11 @@ def install_git_submodule(plugin, location)
   else
     puts "Installing #{plugin}"
     FileUtils.cd(GIT_ROOT) do
-      system "git submodule add #{location} #{plugin_dir(plugin).relative_path_from(GIT_ROOT)}"
+      if system "git status &> /dev/null"
+        system "git submodule add #{location} #{plugin_dir(plugin).relative_path_from(GIT_ROOT)}"
+      else
+        system "git clone #{location} #{plugin_dir(plugin).relative_path_from(GIT_ROOT)}"
+      end
     end
   end
 end
