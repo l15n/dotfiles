@@ -67,3 +67,6 @@
 [submodule "vim/bundle/conque"]
 	path = vim/bundle/conque
 	url = https://github.com/rson/vim-conque.git
+[submodule "vim/bundle/cocoa"]
+	path = vim/bundle/cocoa
+	url = https://github.com/msanders/cocoa.vim.git
