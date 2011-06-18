@@ -83,19 +83,29 @@ __rvm_ps1() {
 	fi
 }
 
-# Print a label if bash's parent process is vim
-__vim_ps1() {
-	if ps -p $PPID -o comm= | grep vim$ &>/dev/null; then
-		__cwrap "/vim" 0\;32
-	fi
-}
-
 # Show current process as title for GNU screen
+# TODO: Review for tmux
 __screen_title() {
 	printf "\ek\e\\"
 }
 
+__ps1_shell() {
+	local hostname=$(__cwrap \\h 0\;33)
+	local username=$(__cwrap \\u 1\;35)
+	local cwd=$(__cwrap \\w 1\;33)
+	# printf '$(__cwrap [!\!@\A][j:\j][\w] 1\;33)'
+	printf "[!\!@\A][$username@$hostname:$cwd]"
+}
+
+__ps1_prompt() {
+	# Print a label if bash's parent process is vim
+	if ps -p $PPID -o comm= | grep vim$ &>/dev/null; then
+		__cwrap "vim>" 0\;32
+	else
+		printf '$'
+	fi
+}
+
 ps1_set() {
-	# On line 2, non-printable chars are surrounded with \[ \] to help line wrapping
-	PS1=$'$(__last_status_ps1)$(__cwrap [!\!@\A][j:\j][\w] 1\;33)$(__scm_ps1)$(__rvm_ps1)\n\[$(__cwrap \]\u\[ 1\;35)\]@\[$(__cwrap \]\h\[ 0\;33)\]$(__vim_ps1) \$ \[$(__screen_title)\]'
+	PS1=$"\$(__last_status_ps1)$(__ps1_shell)\$(__scm_ps1)\$(__rvm_ps1)\n$(__ps1_prompt) "
 }
