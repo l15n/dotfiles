@@ -1,0 +1,10 @@
+n forw-line
+N forw-line-force
+e back-line
+E back-line-force
+s forw-screen
+t back-screen
+k repeat-search
+K reverse-search
+\ek repeat-search-all
+\eK reverse-search-all
