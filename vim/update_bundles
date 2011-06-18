@@ -22,12 +22,13 @@ BUNDLES = {
   "javascript" => "git://github.com/pangloss/vim-javascript.git",
   "coffeescript" => "git://github.com/kchmck/vim-coffee-script.git",
   "supertab" => "git://github.com/ervandew/supertab.git",
-  "aligh" => "https://github.com/tsaleh/vim-align.git",
+  "align" => "https://github.com/pix/vim-align.git",
   "indent_object" => "git://github.com/michaeljsmith/vim-indent-object.git",
   "nerdcommenter" => "git://github.com/ddollar/nerdcommenter.git",
   "conque" => "https://github.com/rson/vim-conque.git",
   "cocoa" => "https://github.com/msanders/cocoa.vim.git",
   "gist" => "https://github.com/mattn/gist-vim.git",
+  "nerdtree" => "https://github.com/scrooloose/nerdtree.git",
   "jquery" => [12107, 'syntax'],
   "navajo" => [190, 'colors']
 }
