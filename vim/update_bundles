@@ -15,7 +15,6 @@ BUNDLES = {
   "endwise" => "git://github.com/tpope/vim-endwise.git",
   "unimpaired" => "https://github.com/tpope/vim-unimpaired.git",
   "ack" => "https://github.com/mileszs/ack.vim.git",
-  "scss" => "https://github.com/cakebaker/scss-syntax.vim.git",
   "html5" => "https://github.com/othree/html5.vim.git",
   "solarized" => "git://github.com/altercation/vim-colors-solarized.git",
   "ri_vim" => "git://github.com/l15n/ri-browser.git",
@@ -29,6 +28,8 @@ BUNDLES = {
   "cocoa" => "https://github.com/msanders/cocoa.vim.git",
   "gist" => "https://github.com/mattn/gist-vim.git",
   "nerdtree" => "https://github.com/scrooloose/nerdtree.git",
+  "jekyll" => "https://github.com/csexton/jekyll.vim.git",
+  "haml" => "https://github.com/tpope/vim-haml.git",
   "jquery" => [12107, 'syntax'],
   "navajo" => [190, 'colors']
 }
