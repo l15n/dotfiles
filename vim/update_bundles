@@ -45,20 +45,30 @@ def plugin_dir(plugin)
   BUNDLES_DIR.join(plugin.to_s)
 end
 
-def install_git_submodule(plugin, location)
-  if Dir.exists? plugin_dir(plugin)
-    puts "Updating #{plugin}"
-    FileUtils.cd(plugin_dir(plugin).to_s) do
-      system 'git pull'
-    end
-  else
-    puts "Installing #{plugin}"
-    FileUtils.cd(GIT_ROOT) do
-      if system "git status &> /dev/null"
-        system "git submodule add #{location} #{plugin_dir(plugin).relative_path_from(GIT_ROOT)}"
-      else
-        system "git clone #{location} #{plugin_dir(plugin).relative_path_from(GIT_ROOT)}"
-      end
+def plugin_exists?(plugin)
+  Dir.exists? plugin_dir(plugin)
+end
+
+def is_git_repository?
+  FileUtils.cd(GIT_ROOT) do
+    system "git status > /dev/null 2>&1"
+  end
+end
+
+def update_git_clone(plugin)
+  puts "Updating clone #{plugin}"
+  FileUtils.cd(plugin_dir(plugin).to_s) do
+    system 'git pull'
+  end
+end
+
+def install_git_plugin(plugin, location)
+  puts "Installing #{plugin}"
+  FileUtils.cd(GIT_ROOT) do
+    if system "git status > /dev/null 2>&1"
+      system "git submodule add #{location} #{plugin_dir(plugin).relative_path_from(GIT_ROOT)}"
+    else
+      system "git clone #{location} #{plugin_dir(plugin).relative_path_from(GIT_ROOT)}"
     end
   end
 end
@@ -81,11 +91,26 @@ end
 BUNDLES.each do |plugin, location|
   case location
   when String
-    install_git_submodule(plugin, location)
+    if plugin_exists? plugin
+      if is_git_repository?
+        update_git_clone(plugin, location)
+      end
+    else
+      install_git_plugin(plugin, location)
+    end
   when Array
     install_from_vim_org(plugin, location)
   else
     puts "Warning: Settings for #{plugin} are invalid:"
     p location
+  end
+end
+
+FileUtils.cd(GIT_ROOT) do
+  if system "git status > /dev/null 2>&1"
+    puts "Registering submodules..."
+    system "git submodule init"
+    puts "Updating submodules..."
+    system "git submodule update"
   end
 end
