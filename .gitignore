@@ -11,6 +11,7 @@ fish_*history
 localrc.bash
 local_profile.bash
 update_servers.sh
+ssh_config
 # Build products
 *.o
 *.bundle

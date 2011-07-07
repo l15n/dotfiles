@@ -94,7 +94,7 @@ __ps1_shell() {
 	local username=$(__cwrap \\u 1\;35)
 	local cwd=$(__cwrap \\w 1\;33)
 	# printf '$(__cwrap [!\!@\A][j:\j][\w] 1\;33)'
-	printf "[!\!@\A][$username@$hostname:$cwd]"
+	printf "[!\!@\A][j:\j][$username@$hostname:$cwd]"
 }
 
 __ps1_prompt() {
