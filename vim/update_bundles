@@ -30,6 +30,7 @@ BUNDLES = {
   "nerdtree" => "https://github.com/scrooloose/nerdtree.git",
   "jekyll" => "https://github.com/csexton/jekyll.vim.git",
   "haml" => "https://github.com/tpope/vim-haml.git",
+  "vcs" => "git://repo.or.cz/vcscommand",
   "jquery" => [12107, 'syntax'],
   "navajo" => [190, 'colors']
 }
