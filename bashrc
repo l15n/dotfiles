@@ -42,4 +42,8 @@ source ~/.bash.d/prompt.bash
 # Load RVM just before the prompt
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+if [ -f ~/.nvm/nvm.sh ]; then
+	source ~/.nvm/nvm.sh
+fi
+
 ps1_set
