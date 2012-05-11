@@ -4,6 +4,7 @@
 [core]
 	;Use a global .gitignore
 	excludesFile = ~/.gitignore
+	editor = vim -c 'set fenc=utf-8'
 [color]
 	ui = auto
 [diff]
@@ -21,8 +22,7 @@
 	oneline = log --pretty=oneline --abbrev-commit --decorate
 	amend = commit --amend
 	track = branch --track
-[merge]
-	tool = vimdiff
+	graph = log --graph --abbrev-commit --decorate --pretty=oneline
 [format]
 	numbered = auto
 [branch]
