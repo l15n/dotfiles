@@ -47,3 +47,5 @@ if [ -f ~/.nvm/nvm.sh ]; then
 fi
 
 ps1_set
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
