@@ -8,18 +8,9 @@ if [ -f "/usr/local/etc/bash_completion" ]; then
 	source "/usr/local/etc/bash_completion"
 fi
 
-# EDITOR variables
-if [ $OSTYPE = 'linux-gnu' ]; then
-	export EDITOR=vim
-	export SVN_EDITOR=vim
-	export GIT_EDITOR=vim
-else
-	# Assume Darwin/BSD if not linux-gnu
-	# On OS X, use own version of vim instead of OS X bundled vim
-	export EDITOR="/usr/local/bin/vim"
-	export SVN_EDITOR="/usr/local/bin/vim"
-	export GIT_EDITOR="/usr/local/bin/vim"
-fi
+export EDITOR=vim
+export SVN_EDITOR=vim
+export GIT_EDITOR=vim
 export PATH=$PATH:$HOME/bin
 export TERM=xterm-256color
 export LANG=en_US.UTF-8
@@ -29,3 +20,8 @@ if [ -f "$HOME/.bashrc" ]; then
         source "$HOME/.bashrc"
 fi
 
+# Add rbenv to PATH
+export PATH=$HOME/.rbenv/bin:$PATH
+
+# Enable rbenv
+eval "$(rbenv init -)"

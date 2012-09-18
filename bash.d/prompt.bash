@@ -39,7 +39,7 @@ __cwrap(){
           printf $'m'
           shift
         done
-        printf $color_text
+        printf $color_text 2> /dev/null
         printf $'\e[0m' # reset colors
 }
 
@@ -83,6 +83,17 @@ __rvm_ps1() {
 	fi
 }
 
+__rbenv_ps1() {
+	if [[ -s $HOME/.rbenv/bin/rbenv ]] ; then
+		local rbenv_ps1=`rbenv version | cut -d ' ' -f 1`
+	fi
+	if [ $rbenv_ps1 ]; then
+		__cwrap "|${rbenv_ps1}|" 1\;31
+	else
+		__cwrap "|system|" 1\;37\;40
+	fi
+}
+
 # Show current process as title for GNU screen
 # TODO: Review for tmux
 __screen_title() {
@@ -93,8 +104,7 @@ __ps1_shell() {
 	local hostname=$(__cwrap \\h 0\;33)
 	local username=$(__cwrap \\u 1\;35)
 	local cwd=$(__cwrap \\w 1\;33)
-	# printf '$(__cwrap [!\!@\A][j:\j][\w] 1\;33)'
-	printf "[!\!@\A][j:\j][$username@$hostname:$cwd]"
+	printf "[!\!@\A][j:\j][$username@$hostname:$cwd]" 2> /dev/null
 }
 
 __ps1_prompt() {
@@ -107,5 +117,5 @@ __ps1_prompt() {
 }
 
 ps1_set() {
-	PS1=$"\$(__last_status_ps1)$(__ps1_shell)\$(__scm_ps1)\$(__rvm_ps1)\n$(__ps1_prompt) "
+	PS1=$"\$(__last_status_ps1)$(__ps1_shell)\$(__scm_ps1)\$(__rbenv_ps1)\n$(__ps1_prompt) "
 }
