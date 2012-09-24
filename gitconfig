@@ -31,3 +31,5 @@
 	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = false
+[init]
+	templatedir = ~/.git_template
