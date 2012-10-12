@@ -1,18 +1,22 @@
 " Pathogen loads vim plugins from ~/.vim/bundle
 filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+"call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
 
 " Vim options, categorized like :options
 " 1. Important
 set nocompatible
+
+" Neobundle configuration
+source $HOME/.vim/bundles.vim
+
 " 2. moving around, searching and patterns
 set incsearch
 set ignorecase
 set smartcase
 " 4. displaying text
 set scrolloff=999 " Lock cursor line to middle of screen ("Typewriter" scrolling")
-set number
+set nonumber
 " 5. syntax, highlighting and spelling
 set hlsearch
 set cursorline
@@ -51,33 +55,29 @@ set history=100
 " Treat ambiguous double-width characters (e.g.□星♪ etc) correctly
 set ambiwidth=double
 " Add sjis to fileencodings
+set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,sjis,default,latin1
 
 filetype plugin indent on
 syntax on
-" default colors
-" Navajo colorscheme http://www.vim.org/scripts/script.php?script_id=190
-" color navajo
-" Solarized Light
 
-if has('gui-running')
-	set background=light
-else
-	set background=dark
-endif
+" Powerline
+let g:Powerline_symbols = 'fancy'
+
+set background=light
 colorscheme solarized
 
-" Highlight lines over 120 characters in length whenever a window opens
+" Highlight lines over 128 characters in length whenever a window opens
 " From http://vim.wikia.com/wiki/Highlight_long_lines
 if v:version >= 730
-  :set cc=80,120
+  :set cc=80,128
   :hi ColorColumn ctermbg=red guibg=red
 elsif v:version >= 720
   :au BufWinEnter * let w:m1=matchadd('Search', '\%80v', -1)
-  :au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%120v', -1)
+  :au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%128v', -1)
 elseif v:version >= 700
   :au BufRead,BufNewFile * syntax match Search /\%80v/
-  :au BufRead,BufNewFile * syntax match ErrorMsg /\%120v/
+  :au BufRead,BufNewFile * syntax match ErrorMsg /\%128v/
 endif
 
 " Remap for colemak
@@ -105,3 +105,13 @@ map <Esc>[A <Up>
 map <Esc>[B <Down>
 map <Esc>[C <Right>
 map <Esc>[D <Left>
+
+
+" Strip trailing whitespace
+function StripTrailingWhitespaces()
+	let pos = getpos(".")
+	%s/\s\+$//e
+	call setpos(".", pos)
+endfunction
+
+autocmd BufWritePre * :call StripTrailingWhitespaces()

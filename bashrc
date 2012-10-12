@@ -1,5 +1,7 @@
 # ~/.bashrc is executed when non-login interactive shells are started
 
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
 # Convenience aliases
 alias g="git"
 alias s="svn"
@@ -8,7 +10,6 @@ alias r="rails"
 alias a="ack"
 alias b="bundle"
 alias v="vim"
-alias svnksdiff="svn diff --diff-cmd=ksdiff-svnwrapper"
 alias git="hub"
 
 # Aliases using OS dependent flags

@@ -24,12 +24,12 @@ __last_status_ps1() {
 #
 # For background colors, replace 3 with 4.
 # e.g. Red bg color is 0;41
-# 
+#
 # Usage: __cwrap text color1 [color2 [color3 ... ]]
 # For 'bold' colors (second column), specify '1' separately.
 # e.g.
 # __cwrap "Sample text" 1 30
-# 
+#
 __cwrap(){
         local color_text=$1
         shift
@@ -117,5 +117,12 @@ __ps1_prompt() {
 }
 
 ps1_set() {
-	PS1=$"\$(__last_status_ps1)$(__ps1_shell)\$(__scm_ps1)\$(__rbenv_ps1)\n$(__ps1_prompt) "
+	if [[ $RUBY_MANAGER = 'rbenv' ]] ; then
+		PS1=$"\$(__last_status_ps1)$(__ps1_shell)\$(__scm_ps1)\$(__rbenv_ps1)\n$(__ps1_prompt) "
+	else
+		PS1=$"\$(__last_status_ps1)$(__ps1_shell)\$(__scm_ps1)\$(__rvm_ps1)\n$(__ps1_prompt) "
+	fi
+	# for tmux-powerline
+	PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
+
 }
