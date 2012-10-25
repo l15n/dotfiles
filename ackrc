@@ -1,0 +1,4 @@
+--ignore-dir=.git
+--ignore-dir=tmp
+--type-add
+ruby=.haml
