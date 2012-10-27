@@ -10,3 +10,9 @@
 [submodule "modules/tmux-pasteboard"]
 	path = modules/tmux-pasteboard
 	url = https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard.git
+[submodule "modules/fonts/menlo-mensch-incosolata-gist1595572"]
+	path = modules/fonts/menlo-mensch-incosolata-gist1595572
+	url = git://gist.github.com/1595572.git
+[submodule "modules/fonts/sourceCodePro-Powerline"]
+	path = modules/fonts/sourceCodePro-Powerline
+	url = https://github.com/ryanmcilmoyl/sourceCodePro-Powerline.git
