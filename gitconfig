@@ -27,8 +27,6 @@
 	numbered = auto
 [branch]
 	autosetupmerge = true
-[difftool "Kaleidoscope"]
-	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = false
 [credential]
@@ -37,3 +35,5 @@
 	templatedir = ~/.git_template
 [pull]
 	rebase = true
+[include]
+	path = ~/.gitconfig.local
