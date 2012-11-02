@@ -9,6 +9,7 @@ alias i="irb"
 alias r="rails"
 alias a="ack"
 alias b="bundle"
+alias be="bundle exec"
 alias v="vim"
 alias git="hub"
 
