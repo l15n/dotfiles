@@ -1,4 +1,8 @@
 --ignore-dir=.git
 --ignore-dir=tmp
+--ignore-dir=vendor
+--ignore-dir=log
 --type-add
-ruby=.haml
+ruby=.haml,.rake
+--type-set
+coffee=.coffee
