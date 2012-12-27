@@ -5,4 +5,12 @@
 --type-add
 ruby=.haml,.rake
 --type-set
+template=.haml,.erb
+--type-set
 coffee=.coffee
+--type-set
+sass=.scss,.sass
+--type-set
+stylesheet=.css,.scss,.sass
+--type-set
+haml=.haml
