@@ -37,3 +37,7 @@
 	rebase = true
 [include]
 	path = ~/.gitconfig.local
+[push]
+	default = simple
+[merge]
+	tool = vimdiff
