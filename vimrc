@@ -106,6 +106,10 @@ map <Esc>[B <Down>
 map <Esc>[C <Right>
 map <Esc>[D <Left>
 
+" ft-ruby-syntax options
+let ruby_minlines = 200
+let ruby_operators = 1
+let ruby_space_errors = 1
 
 " Strip trailing whitespace
 function StripTrailingWhitespaces()
