@@ -37,6 +37,9 @@ if [ -f ~/.bash.d/git-completion.bash ]; then
         source ~/.bash.d/git-completion.bash
 fi
 
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+
 source ~/.bash.d/prompt.bash
 
 ps1_set
