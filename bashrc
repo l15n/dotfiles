@@ -39,6 +39,10 @@ fi
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
+# https://github.com/rupa/z
+if [ -f `brew --prefix`/etc/profile.d/z.sh ]; then
+	. `brew --prefix`/etc/profile.d/z.sh
+fi
 
 source ~/.bash.d/prompt.bash
 
