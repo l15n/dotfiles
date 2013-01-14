@@ -27,9 +27,17 @@
 	numbered = auto
 [branch]
 	autosetupmerge = true
-[difftool "Kaleidoscope"]
-	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = false
+[credential]
+	helper = osxkeychain
 [init]
 	templatedir = ~/.git_template
+[pull]
+	rebase = true
+[include]
+	path = ~/.gitconfig.local
+[push]
+	default = simple
+[merge]
+	tool = vimdiff

@@ -17,4 +17,5 @@ ssh_config
 *.bundle
 mkmf.log
 Makefile
-
+# Other
+vim/bundle/*

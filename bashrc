@@ -1,5 +1,7 @@
 # ~/.bashrc is executed when non-login interactive shells are started
 
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
 # Convenience aliases
 alias g="git"
 alias s="svn"
@@ -7,8 +9,8 @@ alias i="irb"
 alias r="rails"
 alias a="ack"
 alias b="bundle"
+alias be="bundle exec"
 alias v="vim"
-alias svnksdiff="svn diff --diff-cmd=ksdiff-svnwrapper"
 alias git="hub"
 
 # Aliases using OS dependent flags
@@ -33,6 +35,13 @@ fi
 
 if [ -f ~/.bash.d/git-completion.bash ]; then
         source ~/.bash.d/git-completion.bash
+fi
+
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+# https://github.com/rupa/z
+if [ -f `brew --prefix`/etc/profile.d/z.sh ]; then
+	. `brew --prefix`/etc/profile.d/z.sh
 fi
 
 source ~/.bash.d/prompt.bash

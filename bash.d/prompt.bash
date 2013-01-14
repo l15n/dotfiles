@@ -24,12 +24,12 @@ __last_status_ps1() {
 #
 # For background colors, replace 3 with 4.
 # e.g. Red bg color is 0;41
-# 
+#
 # Usage: __cwrap text color1 [color2 [color3 ... ]]
 # For 'bold' colors (second column), specify '1' separately.
 # e.g.
 # __cwrap "Sample text" 1 30
-# 
+#
 __cwrap(){
         local color_text=$1
         shift
@@ -70,27 +70,22 @@ __scm_ps1() {
         fi
 }
 
-# Print ruby version selected by rvm.
-# System default: black bg RVM: Red
-__rvm_ps1() {
+# Print ruby version selected by rvm or rbenv
+__ruby_ps1() {
 	if [[ -s $HOME/.rvm/scripts/rvm ]] ; then
 		local rvm_ps1=`~/.rvm/bin/rvm-prompt i v`
 	fi
 	if [ $rvm_ps1 ]; then
-		__cwrap "|${rvm_ps1}|" 1\;31
+		__cwrap "|rvm/${rvm_ps1}|" 1\;31
 	else
-		__cwrap "|system|" 1\;37\;40
-	fi
-}
-
-__rbenv_ps1() {
-	if [[ -s $HOME/.rbenv/bin/rbenv ]] ; then
-		local rbenv_ps1=`rbenv version | cut -d ' ' -f 1`
-	fi
-	if [ $rbenv_ps1 ]; then
-		__cwrap "|${rbenv_ps1}|" 1\;31
-	else
-		__cwrap "|system|" 1\;37\;40
+		if [[ -s $HOME/.rbenv/shims/ruby ]] ; then
+			local rbenv_ps1=`rbenv version | cut -d ' ' -f 1`
+		fi
+		if [ $rbenv_ps1 ]; then
+			__cwrap "|rbenv/${rbenv_ps1}|" 0\;31
+		else
+			__cwrap "|system|" 1\;37\;40
+		fi
 	fi
 }
 
@@ -117,5 +112,8 @@ __ps1_prompt() {
 }
 
 ps1_set() {
-	PS1=$"\$(__last_status_ps1)$(__ps1_shell)\$(__scm_ps1)\$(__rbenv_ps1)\n$(__ps1_prompt) "
+	PS1=$"\$(__last_status_ps1)$(__ps1_shell)\$(__scm_ps1)\$(__ruby_ps1)\n$(__ps1_prompt) "
+	# for tmux-powerline
+	PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
+
 }

@@ -49,3 +49,8 @@ fi
 if [ -a "$HOME/.ssh_config" ]; then
 	__link_with_backup $HOME/.ssh_config $HOME/.ssh/config
 fi
+
+# Compile tmux MacOSX pasteboard
+if [ -a "$HOME/.modules/tmux-pasteboard/Makefile" ]; then
+	(cd ~/.modules/tmux-pasteboard; make reattach-to-user-namespace && cp reattach-to-user-namespace ~/bin)
+fi
