@@ -70,22 +70,15 @@ __scm_ps1() {
         fi
 }
 
-# Print ruby version selected by rvm or rbenv
+# Print ruby version selected by rbenv
 __ruby_ps1() {
-	if [[ -s $HOME/.rvm/scripts/rvm ]] ; then
-		local rvm_ps1=`~/.rvm/bin/rvm-prompt i v`
+	if [[ -s $HOME/.rbenv/shims/ruby ]] ; then
+		local rbenv_ps1=`rbenv version | cut -d ' ' -f 1`
 	fi
-	if [ $rvm_ps1 ]; then
-		__cwrap "|rvm/${rvm_ps1}|" 1\;31
+	if [ $rbenv_ps1 ]; then
+		__cwrap "|rbenv/${rbenv_ps1}|" 0\;31
 	else
-		if [[ -s $HOME/.rbenv/shims/ruby ]] ; then
-			local rbenv_ps1=`rbenv version | cut -d ' ' -f 1`
-		fi
-		if [ $rbenv_ps1 ]; then
-			__cwrap "|rbenv/${rbenv_ps1}|" 0\;31
-		else
-			__cwrap "|system|" 1\;37\;40
-		fi
+		__cwrap "|system|" 1\;37\;40
 	fi
 }
 
