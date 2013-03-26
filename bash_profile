@@ -21,17 +21,12 @@ if [ -f "$HOME/.bashrc" ]; then
         source "$HOME/.bashrc"
 fi
 
-# rbenv is usable whenever rvm is `system`
 if [[ -s $HOME/.rbenv/shims/ruby ]] ; then
 	# Add rbenv to PATH
 	export PATH=$HOME/.rbenv/bin:$PATH
 
 	# Enable rbenv
 	eval "$(rbenv init -)"
-fi
-
-if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
-	source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 fi
 
 # Try using tmuxinator

@@ -1,7 +1,5 @@
 # ~/.bashrc is executed when non-login interactive shells are started
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 # Convenience aliases
 alias g="git"
 alias s="svn"

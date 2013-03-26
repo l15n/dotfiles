@@ -8,6 +8,8 @@ ruby=.haml,.rake
 template=.haml,.erb
 --type-set
 coffee=.coffee
+--type-add
+js=.coffee
 --type-set
 sass=.scss,.sass
 --type-set
