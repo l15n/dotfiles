@@ -23,6 +23,7 @@
 	amend = commit --amend
 	track = branch --track
 	graph = log --graph --abbrev-commit --decorate --pretty=oneline
+	fetch-pulls = fetch origin +refs/pull/*:refs/remotes/pull/*
 [format]
 	numbered = auto
 [branch]
