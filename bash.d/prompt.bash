@@ -5,7 +5,7 @@ __last_status_ps1() {
   if [ "$LAST" -ne "0" ]
   then
      printf $'\e[1m\e[41m\e[37m' # red bg/white fg
-     printf "Exited with $LAST!\n"
+     printf "Exited with $LAST!\r\n"
      printf $'\e[0m' # reset colors
   fi
 }
