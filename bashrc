@@ -35,6 +35,10 @@ if [ -f ~/.bash.d/git-completion.bash ]; then
         source ~/.bash.d/git-completion.bash
 fi
 
+if [ -f ~/.bash.d/hub.git-completion.bash ]; then
+	source ~/.bash.d/hub.git-completion.bash
+fi
+
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 # https://github.com/rupa/z
