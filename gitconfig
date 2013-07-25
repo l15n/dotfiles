@@ -16,6 +16,7 @@
 	ci = commit -v
 	cm = commit -m
 	co = checkout
+	rh = reset  --hard HEAD
 	staged = diff --cached
 	unstaged = diff
 	both = diff HEAD
