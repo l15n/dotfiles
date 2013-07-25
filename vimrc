@@ -119,3 +119,5 @@ function StripTrailingWhitespaces()
 endfunction
 
 autocmd BufWritePre * :call StripTrailingWhitespaces()
+
+source $HOME/.vim/leaders.vim
