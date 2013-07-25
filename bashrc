@@ -10,6 +10,7 @@ alias b="bundle"
 alias be="bundle exec"
 alias v="vim"
 alias git="hub"
+alias chrome='open -a "Google Chrome"'
 
 # Aliases using OS dependent flags
 if [ $OSTYPE = 'linux-gnu' ]; then
