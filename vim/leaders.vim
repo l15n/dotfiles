@@ -15,7 +15,7 @@ nnoremap <Leader>gv :Gitv<CR>
 nnoremap <Leader>t :Unite -start-insert file_rec/async<CR>
 nnoremap <Leader>f :Unite -start-insert buffer file_rec/async<CR>
 nnoremap <Leader>a :Unite grep:.<CR>
-nnoremap <Leader>b :Unite -quick-match buffer<CR>
+nnoremap <Leader>b :Unite -start-insert buffer<CR>
 
 " Rails
 nnoremap <Leader>rv :Eview<SPACE>
