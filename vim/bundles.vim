@@ -14,6 +14,7 @@ NeoBundle 'mileszs/ack.vim'
 NeoBundle 'rson/vim-conque'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'gregsexton/gitv'
 
 " Editing
 NeoBundle 'msanders/snipmate.vim'

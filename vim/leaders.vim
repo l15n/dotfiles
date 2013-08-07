@@ -8,6 +8,9 @@ nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<Space>
 
+" Gitv
+nnoremap <Leader>gv :Gitv<CR>
+
 " Unite
 nnoremap <Leader>t :Unite -start-insert file_rec/async<CR>
 nnoremap <Leader>f :Unite -start-insert buffer file_rec/async<CR>
