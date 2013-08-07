@@ -100,6 +100,13 @@ let g:netrw_liststyle=1
 let g:netrw_cursorline=3
 let g:netrw_keepdir=1
 
+" Unite
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_default_opts = '--nocolor --nogroup'
+let g:unite_source_grep_recursive_opt = ''
+let g:unite_source_grep_max_candidates = 200
+
+
 " Workaround for cursor key problems in screen/tmux
 map <Esc>[A <Up>
 map <Esc>[B <Down>
