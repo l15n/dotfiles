@@ -122,12 +122,8 @@ endfunction
 autocmd BufWritePre * :call StripTrailingWhitespaces()
 
 autocmd InsertEnter * :set number
-autocmd WinLeave * :set nonumber
-autocmd WinLeave * :set norelativenumber
-autocmd WinEnter * :set relativenumber
-autocmd BufWinEnter * :set relativenumber
-autocmd InsertLeave * :set relativenumber
-autocmd CmdwinEnter * :set nonumber
-autocmd CmdwinEnter * :set norelativenumber
+autocmd WinLeave,Cmdwinenter * :set nonumber
+autocmd WinLeave,CmdwinEnter * :set norelativenumber
+autocmd WinEnter,BufWinEnter,InsertLeave * :set relativenumber
 
 source $HOME/.vim/leaders.vim
