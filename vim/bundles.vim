@@ -8,8 +8,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 " Utilities
 NeoBundle 'scrooloose/nerdtree'
-" TODO: Automate build
-NeoBundle 'git://git.wincent.com/command-t.git'
 
 " Tool integration
 NeoBundle 'mileszs/ack.vim'
@@ -53,6 +51,14 @@ NeoBundle 'spolu/dwm.vim'
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'TailMinusF'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc', {
+			\ 'build' : {
+			\     'windows' : 'make -f make_mingw32.mak',
+			\     'cygwin' : 'make -f make_cygwin.mak',
+			\     'mac' : 'make -f make_mac.mak',
+			\     'unix' : 'make -f make_unix.mak',
+			\    },
+			\ }
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Lokaltog/vim-powerline'
 
