@@ -9,6 +9,7 @@
 	ui = auto
 [diff]
 	mnemonicprefix
+	algorithm = histogram
 	renames = copies
 	ignoreSubmodules = dirty
 [alias]
