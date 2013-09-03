@@ -12,8 +12,8 @@ nnoremap <Leader>gd :Gdiff<Space>
 nnoremap <Leader>gv :Gitv<CR>
 
 " Unite
-nnoremap <Leader>t :Unite -start-insert file_rec/async<CR>
-nnoremap <Leader>f :Unite -start-insert buffer file_rec/async<CR>
+nnoremap <Leader>t :Unite -start-insert buffer file_rec/async<CR>
+nnoremap <Leader>f :Unite -start-insert file<CR>
 nnoremap <Leader>a :Unite grep:.<CR>
 nnoremap <Leader>b :Unite -start-insert buffer<CR>
 
