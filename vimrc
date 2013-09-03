@@ -125,6 +125,9 @@ let ruby_space_errors = 1
 " indent_guides
 let g:indent_guides_start_level = 2
 let g:indent_guides_default_mapping = 0
+
+" NERDTree
+let g:NERDTreeMapOpenExpl='f'
 " Strip trailing whitespace
 function StripTrailingWhitespaces()
 	let pos = getpos(".")
