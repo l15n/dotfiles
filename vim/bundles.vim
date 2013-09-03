@@ -41,6 +41,7 @@ NeoBundle 'othree/html5.vim'
 
 " Theme
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
 " New (Still learning)
 NeoBundle 'sickill/vim-pasta'

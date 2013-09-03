@@ -17,6 +17,8 @@ set smartcase
 " 4. displaying text
 set scrolloff=999 " Lock cursor line to middle of screen ("Typewriter" scrolling")
 set nonumber
+set nolist
+set listchars=eol:⨼,tab:⨠-,trail:~,nbsp:∙,precedes:<,extends:>
 " 5. syntax, highlighting and spelling
 set hlsearch
 set cursorline
@@ -66,6 +68,8 @@ let g:Powerline_symbols = 'fancy'
 
 set background=light
 colorscheme solarized
+let g:solarized_visibility = 'low'
+let g:solarized_termcolors = 256
 
 " Highlight lines over 128 characters in length whenever a window opens
 " From http://vim.wikia.com/wiki/Highlight_long_lines
@@ -118,6 +122,9 @@ let ruby_minlines = 200
 let ruby_operators = 1
 let ruby_space_errors = 1
 
+" indent_guides
+let g:indent_guides_start_level = 2
+let g:indent_guides_default_mapping = 0
 " Strip trailing whitespace
 function StripTrailingWhitespaces()
 	let pos = getpos(".")
@@ -128,9 +135,16 @@ endfunction
 " Autocommands
 autocmd BufWritePre * :call StripTrailingWhitespaces()
 
+autocmd InsertEnter * :set norelativenumber
 autocmd InsertEnter * :set number
+autocmd InsertEnter * :set list
+autocmd InsertEnter * :IndentGuidesEnable
 autocmd WinLeave,Cmdwinenter * :set nonumber
+autocmd WinLeave,Cmdwinenter * :set nolist
 autocmd WinLeave,CmdwinEnter * :set norelativenumber
+autocmd WinEnter,BufWinEnter,InsertLeave * :set nonumber
 autocmd WinEnter,BufWinEnter,InsertLeave * :set relativenumber
+autocmd WinEnter,BufWinEnter,InsertLeave * :set nolist
+autocmd WinEnter,BufWinEnter,InsertLeave * :IndentGuidesDisable
 
 source $HOME/.vim/leaders.vim
