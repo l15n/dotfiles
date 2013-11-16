@@ -22,3 +22,7 @@ nnoremap <Leader>rv :Eview<SPACE>
 nnoremap <Leader>rc :Econtroller<SPACE>
 nnoremap <Leader>rm :Emodel<SPACE>
 nnoremap <Leader>rs :Espec<SPACE>
+
+" Colemak
+
+nnoremap <leader>c :call ColemakToggle()<cr>
