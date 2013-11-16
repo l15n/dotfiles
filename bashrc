@@ -12,6 +12,10 @@ alias v="vim"
 alias git="hub"
 alias chrome='open -a "Google Chrome"'
 
+alias gpr="git pull-request"
+alias gpf="git push --f"
+alias gpm="git push -u mine HEAD"
+
 # Aliases using OS dependent flags
 if [ $OSTYPE = 'linux-gnu' ]; then
 	alias ls="ls --color=always"
