@@ -60,8 +60,15 @@ set fileencodings=ucs-bom,utf-8,sjis,default,latin1
 filetype plugin indent on
 syntax on
 
-" Powerline
-let g:Powerline_symbols = 'fancy'
+" Status-line with lightline
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"⭤":""}',
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ }
 
 set background=light
 colorscheme solarized
@@ -146,5 +153,4 @@ autocmd WinEnter,BufWinEnter,InsertLeave * :set nonumber
 autocmd WinEnter,BufWinEnter,InsertLeave * :set relativenumber
 autocmd WinEnter,BufWinEnter,InsertLeave * :set nolist
 autocmd WinEnter,BufWinEnter,InsertLeave * :IndentGuidesDisable
-
 source $HOME/.vim/leaders.vim

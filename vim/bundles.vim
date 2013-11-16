@@ -61,8 +61,8 @@ NeoBundle 'Shougo/vimproc', {
   \     'unix' : 'make -f make_unix.mak',
   \    },
   \ }
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'Shougo/neocomplete'
+NeoBundle 'itchyny/lightline.vim'
 
 filetype plugin indent on
 
