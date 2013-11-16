@@ -1,7 +1,4 @@
-" Pathogen loads vim plugins from ~/.vim/bundle
 filetype off
-"call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
 
 " Vim options, categorized like :options
 " 1. Important
