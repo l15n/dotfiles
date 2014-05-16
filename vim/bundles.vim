@@ -21,6 +21,7 @@ NeoBundle 'msanders/snipmate.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tsaleh/vim-matchit'
 NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'kshenoy/vim-signature'
 
 " Language specific
 " Ruby
