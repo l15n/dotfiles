@@ -26,6 +26,7 @@
 	track = branch --track
 	graph = log --graph --abbrev-commit --decorate --pretty=oneline
 	fetch-pulls = fetch origin +refs/pull/*:refs/remotes/pull/*
+	backport = cherry-pick -x -m1
 [format]
 	numbered = auto
 [branch]
