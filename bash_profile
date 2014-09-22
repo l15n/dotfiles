@@ -6,6 +6,8 @@ export PATH=$PATH:$HOME/bin
 export TERM=xterm-256color
 export LANG=en_US.UTF-8
 export GOPATH=$HOME
+# See https://github.com/amatsuda/gem-src
+export GEMSRC_USE_GHQ=1
 
 # Get local profile (not shared across machines)
 if [ -f "$HOME/.local_profile.bash" ]; then
