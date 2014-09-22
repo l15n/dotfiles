@@ -70,7 +70,12 @@ let g:lightline = {
       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
       \ }
 
-set background=light
+if has("gui_running")
+  set background=light
+else
+  set background=dark
+endif
+
 colorscheme solarized
 let g:solarized_visibility = 'low'
 let g:solarized_termcolors = 256
