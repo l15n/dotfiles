@@ -5,6 +5,7 @@ export GIT_EDITOR=vim
 export PATH=$PATH:$HOME/bin
 export TERM=xterm-256color
 export LANG=en_US.UTF-8
+export GOPATH=$HOME
 
 # Get local profile (not shared across machines)
 if [ -f "$HOME/.local_profile.bash" ]; then
