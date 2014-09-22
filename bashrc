@@ -18,8 +18,8 @@ alias gpm="git push -u mine HEAD"
 
 alias pv='vim `find . | peco`'
 alias pcd='cd $(ghq list -p |peco)'
-alias pco = 'git checkout `git branch | peco`'
-alias phq = 'ghq list -p | perl -nlpe 's[.*src/(.*)][$1\0$_]' | peco --null'
+alias pco='git checkout `git branch | peco`'
+alias phq='ghq list -p | perl -nlpe "s[.*src/(.*)][$1\0$_]" | peco --null'
 
 # Aliases using OS dependent flags
 if [ $OSTYPE = 'linux-gnu' ]; then
