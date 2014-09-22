@@ -44,6 +44,10 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
+" Other syntax
+NeoBundle 'elixir-lang/vim-elixir'
+NeoBundle 'fatih/vim-go'
+
 " New (Still learning)
 NeoBundle 'sickill/vim-pasta'
 NeoBundle 'ervandew/supertab'
