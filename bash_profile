@@ -32,6 +32,14 @@ if [[ -s $HOME/.rbenv/shims/ruby ]] ; then
 	eval "$(rbenv init -)"
 fi
 
+if [[ -s $HOME/.pyenv/shims/python ]] ; then
+	# Add pyenv to PATH
+	export PATH=$HOME/.pyenv/bin:$PATH
+
+	# Enable pyenv
+	eval "$(pyenv init -)"
+fi
+
 # Try using tmuxinator
 if [ -s $HOME/.tmuxinator/scripts/tmuxinator ]; then
 	source $HOME/.tmuxinator/scripts/tmuxinator
