@@ -21,7 +21,10 @@ NeoBundle 'msanders/snipmate.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tsaleh/vim-matchit'
 NeoBundle 'tpope/vim-unimpaired'
+" Unfortunately, vim singature interferes with split windows
 NeoBundle 'kshenoy/vim-signature'
+" Show marks also fails when splitting windows into panes
+" NeoBundle 'vim-scripts/ShowMarks'
 
 " Language specific
 " Ruby
@@ -31,10 +34,13 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'csexton/jekyll.vim'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'l15n/ri-browser'
+NeoBundle 'slim-template/vim-slim'
+NeoBundle 'ngmy/vim-rubocop'
 
 " JS/Coffee
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'elzr/vim-json'
 
 " Other
 NeoBundle 'msanders/cocoa.vim'
@@ -49,13 +55,13 @@ NeoBundle 'elixir-lang/vim-elixir'
 NeoBundle 'fatih/vim-go'
 
 " New (Still learning)
-NeoBundle 'sickill/vim-pasta'
-NeoBundle 'ervandew/supertab'
-NeoBundle 'pix/vim-align'
-NeoBundle 'michaeljsmith/vim-indent-object'
-NeoBundle 'ddollar/nerdcommenter'
-NeoBundle 'spolu/dwm.vim'
-NeoBundle 'kana/vim-smartinput'
+"NeoBundle 'sickill/vim-pasta'
+"NeoBundle 'ervandew/supertab'
+"NeoBundle 'pix/vim-align'
+"NeoBundle 'michaeljsmith/vim-indent-object'
+"NeoBundle 'ddollar/nerdcommenter'
+"NeoBundle 'spolu/dwm.vim'
+"NeoBundle 'kana/vim-smartinput'
 NeoBundle 'TailMinusF'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc', {
@@ -67,7 +73,9 @@ NeoBundle 'Shougo/vimproc', {
   \    },
   \ }
 NeoBundle 'Shougo/neocomplete'
-NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'lambdalisue/vim-gita'
+"NeoBundle 'itchyny/lightline.vim'
 
 filetype plugin indent on
 
