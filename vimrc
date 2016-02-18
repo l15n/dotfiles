@@ -170,3 +170,17 @@ source $HOME/.vim/leaders.vim
 " - hashrocket conversion
 nmap <Leader>h :s/\:\([a-zA-Z_]*\)\s=>/\1\:/g<cr>
 vmap <Leader>h :s/\:\([a-zA-Z_]*\)\s=>/\1\:/g<cr>
+
+" Projectionist
+let g:projectionist_heuristics = {
+      \   "*.gemspec": {
+      \     "lib/*.rb": {
+      \       "alternate": "spec/{}_spec.rb",
+      \       "type": "source"
+      \     },
+      \     "spec/*_spec.rb": {
+      \       "alternate": "lib/{}.rb",
+      \       "type": "test"
+      \     }
+      \   }
+      \ }
