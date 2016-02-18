@@ -8,6 +8,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 " Utilities
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'tpope/vim-projectionist'
 
 " Tool integration
 NeoBundle 'mileszs/ack.vim'
