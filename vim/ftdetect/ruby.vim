@@ -17,3 +17,9 @@ au BufNewFile,BufRead .irbrc,irbrc			set filetype=ruby
 au BufNewFile,BufRead *.erb,*.rhtml			set filetype=eruby
 
 au BufNewFile,BufRead [gG]emfile,[gG]emfile.lock	set filetype=ruby
+
+" Ridgepole Schema https://github.com/winebarrel/ridgepole
+au BufNewFile,BufRead *.schema set filetype=ruby
+
+" Axlsx templates https://github.com/randym/axlsx
+au BufNewFile,BufRead *.xlsx.axlsx set filetype=ruby
