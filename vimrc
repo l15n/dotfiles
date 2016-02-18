@@ -53,9 +53,13 @@ set history=100
 " 24. multi-byte characters
 " Treat ambiguous double-width characters (e.g.□星♪ etc) correctly
 set ambiwidth=double
+
 " Add sjis to fileencodings
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,sjis,default,latin1
+
+set foldlevel=5
+set foldmethod=syntax
 
 filetype plugin indent on
 syntax on
@@ -76,9 +80,9 @@ else
   set background=dark
 endif
 
-colorscheme solarized
 let g:solarized_visibility = 'low'
 let g:solarized_termcolors = 256
+colorscheme solarized
 
 " Highlight lines over 128 characters in length whenever a window opens
 " From http://vim.wikia.com/wiki/Highlight_long_lines
@@ -132,8 +136,9 @@ let ruby_operators = 1
 let ruby_space_errors = 1
 
 " indent_guides
-let g:indent_guides_start_level = 2
+let g:indent_guides_start_level = 4
 let g:indent_guides_default_mapping = 0
+let g:indent_guides_guide_size = 1
 
 " NERDTree
 let g:NERDTreeMapOpenExpl='f'
