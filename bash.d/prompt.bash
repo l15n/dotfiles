@@ -92,7 +92,7 @@ __ps1_shell() {
 	local hostname=$(__cwrap \\h 0\;33)
 	local username=$(__cwrap \\u 1\;35)
 	local cwd=$(__cwrap \\w 1\;33)
-	printf "[!\!@\A][j:\j][$username@$hostname:$cwd]" 2> /dev/null
+	printf "[!\!@\A|j:\j|s:$SHLVL|$username@$hostname:$cwd]" 2> /dev/null
 }
 
 __ps1_prompt() {
