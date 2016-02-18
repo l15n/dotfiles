@@ -164,3 +164,9 @@ autocmd WinEnter,BufWinEnter,InsertLeave * :set relativenumber
 autocmd WinEnter,BufWinEnter,InsertLeave * :set nolist
 autocmd WinEnter,BufWinEnter,InsertLeave * :IndentGuidesDisable
 source $HOME/.vim/leaders.vim
+
+
+" Ruby shortcuts
+" - hashrocket conversion
+nmap <Leader>h :s/\:\([a-zA-Z_]*\)\s=>/\1\:/g<cr>
+vmap <Leader>h :s/\:\([a-zA-Z_]*\)\s=>/\1\:/g<cr>
