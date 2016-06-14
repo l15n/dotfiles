@@ -48,6 +48,9 @@ set mls=2
 " 19. reading and writing files
 set autowrite
 set fileformats=unix,mac,dos
+set backupdir=~/.vim/tmp
+" 20. the swap file
+set directory=~/.vim/tmp
 " 21. command line editing
 set history=100
 " 24. multi-byte characters
