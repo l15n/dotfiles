@@ -4,7 +4,7 @@
 [core]
 	;Use a global .gitignore
 	excludesFile = ~/.gitignore
-	editor = vim -c 'set fenc=utf-8'
+	editor = nvim
 [color]
 	ui = auto
 [diff]
@@ -12,6 +12,7 @@
 	algorithm = histogram
 	renames = copies
 	ignoreSubmodules = dirty
+	tool = vimdiff
 [alias]
 	st = status -sb
 	ci = commit -v
@@ -45,5 +46,8 @@
 	default = simple
 [merge]
 	tool = vimdiff
+	path = nvim
+[mergetool "vimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [ghq]
 	root = /Users/leonard-chin/src
