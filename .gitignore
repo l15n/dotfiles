@@ -19,3 +19,4 @@ mkmf.log
 Makefile
 # Other
 vim/bundle/*
+vim/tmp
