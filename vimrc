@@ -80,15 +80,15 @@ let g:lightline = {
       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
       \ }
 
-if has("gui_running")
-  set background=light
-else
-  set background=dark
-endif
+set background=dark
 
 let g:solarized_visibility = 'low'
 let g:solarized_termcolors = 256
-colorscheme solarized
+"colorscheme solarized
+colorscheme falcon
+
+let g:falcon_lightline = 1
+let g:lightline.colorscheme='falcon'
 
 " Highlight lines over 128 characters in length whenever a window opens
 " From http://vim.wikia.com/wiki/Highlight_long_lines
