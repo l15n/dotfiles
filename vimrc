@@ -1,11 +1,10 @@
 filetype off
 
+source $HOME/.vim/bundles.vim
+
 " Vim options, categorized like :options
 " 1. Important
 set nocompatible
-
-" Neobundle configuration
-source $HOME/.vim/bundles.vim
 
 " 2. moving around, searching and patterns
 set incsearch
@@ -53,6 +52,7 @@ set backupdir=~/.vim/tmp
 set directory=~/.vim/tmp
 " 21. command line editing
 set history=100
+set undodir=~/.vim/tmp
 " 24. multi-byte characters
 " Treat ambiguous double-width characters (e.g.□星♪ etc) correctly
 set ambiwidth=double
