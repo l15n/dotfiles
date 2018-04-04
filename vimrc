@@ -67,6 +67,9 @@ set foldmethod=syntax
 "nvim settings
 set clipboard+=unnamedplus
 
+" Use fzf via homebrew
+set rtp+=/usr/local/opt/fzf
+
 " Status-line with lightline
 let g:lightline = {
       \ 'colorscheme': 'wombat',
