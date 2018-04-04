@@ -1,7 +1,7 @@
 # Global settings
 export EDITOR=vim
-export SVN_EDITOR=vim
-export GIT_EDITOR=vim
+export SVN_EDITOR=nvim
+export GIT_EDITOR=nvim
 export PATH=$PATH:$HOME/bin
 export TERM=xterm-256color
 export LANG=en_US.UTF-8
