@@ -64,8 +64,8 @@ set fileencodings=ucs-bom,utf-8,sjis,default,latin1
 set foldlevel=5
 set foldmethod=syntax
 
-filetype plugin indent on
-syntax on
+"nvim settings
+set clipboard+=unnamedplus
 
 " Status-line with lightline
 let g:lightline = {
