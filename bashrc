@@ -2,7 +2,6 @@
 
 # Convenience aliases
 alias g="git"
-alias s="svn"
 alias i="irb"
 alias r="rails"
 alias a="ack"
