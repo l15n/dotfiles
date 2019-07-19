@@ -43,30 +43,13 @@ __cwrap(){
         printf $'\e[0m' # reset colors
 }
 
-# TODO: svn dirty/clean
-__svn_rev() {
-        LANG='C' svn info 2>/dev/null | awk '/Revision:/ {print $2; }'
-}
-
-__svn_branch() {
-        LANG='C' svn info 2>/dev/null | awk '/URL/ {match($2,/(branches(\/.*)?\/?|tags(\/.*)?\/?|trunk)/);print substr($2,RSTART,RLENGTH)}'
-}
-
 # TODO: git dirty/clean
 # Print out scm stuff. Colorize where possible.
-# Git: Green, SVN: Cyan
+# Git: Green
 __scm_ps1() {
         local git_ps1_output=`__git_ps1 "|%s|" 2>/dev/null`
         if [ $git_ps1_output ]; then
                 __cwrap $git_ps1_output 1\;32
-        fi
-        local svn_rev_output=$(__svn_rev)
-        local svn_branch_output=$(__svn_branch)
-        if [ $svn_rev_output ]; then
-                if [ $svn_branch_output ]; then
-                        local svn_branch_output="$svn_branch_output@"
-                fi
-                __cwrap "|${svn_branch_output}r$svn_rev_output|" 1\;36
         fi
 }
 
