@@ -38,8 +38,6 @@
 	helper = osxkeychain
 [init]
 	templatedir = ~/.git_template
-[pull]
-	;rebase = true
 [include]
 	path = ~/.gitconfig.local
 [push]
