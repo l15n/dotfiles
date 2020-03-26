@@ -70,6 +70,15 @@ set clipboard+=unnamedplus
 " Use fzf via homebrew
 set rtp+=/usr/local/opt/fzf
 
+" Python X config
+set pyxversion=3
+
+" Configuration for using coc.vim
+" https://github.com/neoclide/coc.nvim
+source $HOME/.vim/coc-config.vim
+
+
+
 " Status-line with lightline
 let g:lightline = {
       \ 'colorscheme': 'wombat',
