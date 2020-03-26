@@ -18,6 +18,8 @@ au BufNewFile,BufRead *.erb,*.rhtml			set filetype=eruby
 
 au BufNewFile,BufRead [gG]emfile,[gG]emfile.lock	set filetype=ruby
 
+au BufNewFile,BufRead [fF]astfile	set filetype=ruby
+
 " Ridgepole Schema https://github.com/winebarrel/ridgepole
 au BufNewFile,BufRead *.schema set filetype=ruby
 
