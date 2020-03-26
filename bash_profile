@@ -1,5 +1,5 @@
 # Global settings
-export EDITOR=vim
+export EDITOR=nvim
 export SVN_EDITOR=nvim
 export GIT_EDITOR=nvim
 export PATH=$PATH:$HOME/bin
