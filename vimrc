@@ -11,10 +11,10 @@ set incsearch
 set ignorecase
 set smartcase
 " 4. displaying text
-set scrolloff=999 " Lock cursor line to middle of screen ("Typewriter" scrolling")
+" set scrolloff=999 " Lock cursor line to middle of screen ("Typewriter" scrolling")
 set nonumber
 set nolist
-set listchars=eol:⨼,tab:⨠-,trail:~,nbsp:∙,precedes:<,extends:>
+"set listchars=eol:⨼,tab:⨠-,trail:~,nbsp:∙,precedes:<,extends:>
 " 5. syntax, highlighting and spelling
 set hlsearch
 set cursorline
@@ -61,8 +61,8 @@ set ambiwidth=double
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,sjis,default,latin1
 
-set foldlevel=5
-set foldmethod=syntax
+"set foldlevel=8
+"set foldmethod=syntax
 
 "nvim settings
 set clipboard+=unnamedplus
@@ -89,27 +89,33 @@ let g:lightline = {
       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
       \ }
 
-set background=dark
+"set background=dark
 
 let g:solarized_visibility = 'low'
 let g:solarized_termcolors = 256
 "colorscheme solarized
 colorscheme falcon
 
+if &t_Co > 256
+  set termguicolors
+else
+  set notermguicolors
+endif
+
 let g:falcon_lightline = 1
 let g:lightline.colorscheme='falcon'
 
-" Highlight lines over 128 characters in length whenever a window opens
+" Highlight lines over 120 characters in length whenever a window opens
 " From http://vim.wikia.com/wiki/Highlight_long_lines
 if v:version >= 730
-  :set cc=80,128
+  :set colorcolumn=100
   :hi ColorColumn ctermbg=red guibg=red
-elsif v:version >= 720
+elseif v:version >= 720
   :au BufWinEnter * let w:m1=matchadd('Search', '\%80v', -1)
-  :au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%128v', -1)
+  :au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%120v', -1)
 elseif v:version >= 700
   :au BufRead,BufNewFile * syntax match Search /\%80v/
-  :au BufRead,BufNewFile * syntax match ErrorMsg /\%128v/
+  :au BufRead,BufNewFile * syntax match ErrorMsg /\%120v/
 endif
 
 " Remap for colemak
@@ -137,7 +143,6 @@ let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts = '--nocolor --nogroup'
 let g:unite_source_grep_recursive_opt = ''
 let g:unite_source_grep_max_candidates = 200
-
 
 " Workaround for cursor key problems in screen/tmux
 map <Esc>[A <Up>
@@ -167,17 +172,6 @@ endfunction
 " Autocommands
 autocmd BufWritePre * :call StripTrailingWhitespaces()
 
-autocmd InsertEnter * :set norelativenumber
-autocmd InsertEnter * :set number
-autocmd InsertEnter * :set list
-autocmd InsertEnter * :IndentGuidesEnable
-autocmd WinLeave,Cmdwinenter * :set nonumber
-autocmd WinLeave,Cmdwinenter * :set nolist
-autocmd WinLeave,CmdwinEnter * :set norelativenumber
-autocmd WinEnter,BufWinEnter,InsertLeave * :set nonumber
-autocmd WinEnter,BufWinEnter,InsertLeave * :set relativenumber
-autocmd WinEnter,BufWinEnter,InsertLeave * :set nolist
-autocmd WinEnter,BufWinEnter,InsertLeave * :IndentGuidesDisable
 source $HOME/.vim/leaders.vim
 
 
