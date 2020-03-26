@@ -10,6 +10,7 @@ alias be="bundle exec"
 alias v="vim"
 alias git="hub"
 alias chrome='open -a "Google Chrome"'
+alias vim=nvim
 
 alias gpr="git pull-request"
 alias gpf="git push --f"

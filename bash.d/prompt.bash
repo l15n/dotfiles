@@ -55,7 +55,7 @@ __scm_ps1() {
 
 # Print ruby version selected by rbenv
 __ruby_ps1() {
-	if [[ -s $HOME/.rbenv/shims/ruby ]] ; then
+	if [ -s $HOME/.rbenv/shims/ruby ] ; then
 		local rbenv_ps1=`rbenv version | cut -d ' ' -f 1`
 	fi
 	if [ $rbenv_ps1 ]; then
@@ -75,7 +75,7 @@ __ps1_shell() {
 	local hostname=$(__cwrap \\h 0\;33)
 	local username=$(__cwrap \\u 1\;35)
 	local cwd=$(__cwrap \\w 1\;33)
-	printf "[!\!@\A|j:\j|s:$SHLVL|$username@$hostname:$cwd]" 2> /dev/null
+	printf "!\!@\A|j:\j|s:$SHLVL|$username@$hostname:$cwd" 2> /dev/null
 }
 
 __ps1_prompt() {
