@@ -65,12 +65,6 @@ __ruby_ps1() {
 	fi
 }
 
-# Show current process as title for GNU screen
-# TODO: Review for tmux
-__screen_title() {
-	printf "\ek\e\\"
-}
-
 __ps1_shell() {
 	local hostname=$(__cwrap \\h 0\;33)
 	local username=$(__cwrap \\u 1\;35)
@@ -89,7 +83,4 @@ __ps1_prompt() {
 
 ps1_set() {
 	PS1=$"\$(__last_status_ps1)$(__ps1_shell)\$(__scm_ps1)\$(__ruby_ps1)\n$(__ps1_prompt) "
-	# for tmux-powerline
-	PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
-
 }
