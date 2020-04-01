@@ -1,1 +1,1 @@
-/Users/leonard-chin/.vimrc
+../vimrc
