@@ -32,5 +32,3 @@ for f in $FILES; do
 done
 
 mkdir -p $HOME/bin
-mkdir -p $HOME/opt/bin
-mkdir -p $HOME/.ssh
