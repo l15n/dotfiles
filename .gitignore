@@ -20,3 +20,4 @@ Makefile
 # Other
 vim/bundle/*
 vim/tmp
+vim/sessions
