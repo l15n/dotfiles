@@ -21,3 +21,4 @@ Makefile
 vim/bundle/*
 vim/tmp
 vim/sessions
+vim/scripts
