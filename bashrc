@@ -59,6 +59,13 @@ if [ -f `brew --prefix`/etc/profile.d/z.sh ]; then
 	. `brew --prefix`/etc/profile.d/z.sh
 fi
 
-source ~/.bash.d/prompt.bash
+# Use Starship for fancy prompt
+# https://github.com/starship/starship
+if which -s starship; then
+	eval "$(starship init bash)"
+else
+	# Use as fallback only while trialling starship for prompt
+	source ~/.bash.d/prompt.bash
+	ps1_set
+fi
 
-ps1_set
