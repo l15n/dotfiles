@@ -9,6 +9,9 @@ export GOPATH=$HOME/go
 # See https://github.com/amatsuda/gem-src
 export GEMSRC_USE_GHQ=1
 
+# Disable the warning for Mac OS X Catalina
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 export HISTFILESIZE=5000
 
 # Get local profile (not shared across machines)
