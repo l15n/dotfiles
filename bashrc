@@ -21,6 +21,9 @@ alias pcd='cd $(ghq list -p |peco)'
 alias pco='git checkout `git branch | peco`'
 alias phq='cd $(ghq list -p | peco)'
 
+# Shortcut for using fzf and ghq together
+alias fghq='cd $(ghq root)/$(ghq list | fzf --reverse --height 20)'
+
 # Aliases using OS dependent flags
 if [ $OSTYPE = 'linux-gnu' ]; then
 	alias ls="ls --color=always"
