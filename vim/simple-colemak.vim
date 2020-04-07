@@ -61,10 +61,11 @@ function! EnableColemakBindings()
   noremap l u
   noremap L U
   " 5. Use s/t (QWERTY position df) for page up/down
-  nnoremap s <C-D>
-  nnoremap t <C-U>
-  nnoremap S <C-F>
-  nnoremap T <C-B>
+  " Note: Disabled so I can trial sneak.vim
+  " nnoremap s <C-D>
+  " nnoremap t <C-U>
+  " nnoremap S <C-F>
+  " nnoremap T <C-B>
   " Fix commands g* commands
   nnoremap ge gj
   nnoremap gu gk
@@ -156,10 +157,11 @@ function! DisableColemakBindings()
   unmap l
   unmap L
   " 5. Use s/t (QWERTY position df) for page up/down
-  nunmap s
-  nunmap t
-  nunmap S
-  nunmap T
+  " Note: Disabled so I can trial sneak.vim
+  " nunmap s
+  " nunmap t
+  " nunmap S
+  " nunmap T
   " Fix commands g* commands
   nunmap ge
   nunmap gu
