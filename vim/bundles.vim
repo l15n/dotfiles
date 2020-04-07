@@ -54,7 +54,18 @@ if dein#load_state('~/.cache/dein')
   call dein#add('MaxMEllon/vim-jsx-pretty')
 
   " Testing
+  " vim-sneak is a movement command, triggered by `s` key in normal mode
+  " `sxx` to go to all locations that match xx (two characters).
+  " Similar to `f` and `t` keys in normal mode, but across entire file w/ 2
+  " characters.
+  " Use `;` to next instance or `3;` to third instance.
+  " Use `Ctrl-o` to restart
+  " Use `S` to do it in reverse
+  "
   call dein#add('justinmk/vim-sneak')
+  " vim-gtfo helps to "escape" vim
+  " `gof` will open the Finder in directory of current file
+  " `got` will open the Terminal in directory of current file
   call dein#add('justinmk/vim-gtfo')
   " Path Navigator: dirvish. Works well with unimpaired and eunuch.
   call dein#add('justinmk/vim-dirvish')
