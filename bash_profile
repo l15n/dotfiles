@@ -45,12 +45,3 @@ if [[ -s $HOME/.pyenv/shims/python ]] ; then
 	eval "$(pyenv init -)"
 fi
 
-# Try using tmuxinator
-if [ -s $HOME/.tmuxinator/scripts/tmuxinator ]; then
-	source $HOME/.tmuxinator/scripts/tmuxinator
-fi
-
-if [ -s $GEM_HOME/bin/tmuxinator_completion ]; then
-	source $GEM_HOME/bin/tmuxinator_completion
-fi
-
