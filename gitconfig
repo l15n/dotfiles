@@ -39,7 +39,7 @@
 [init]
 	templatedir = ~/.git_template
 [include]
-	;path = ~/.gitconfig.local
+	path = ~/.gitconfig.local
 ; include if in a ckpd related directory for sources
 [includeIf "gitdir:~/src/ghe.ckpd.co/"]
 	path = ~/.gitconfig.ckpd
