@@ -24,12 +24,19 @@ if dein#load_state('~/.cache/dein')
   " Tools
   call dein#add('scrooloose/nerdtree')
   call dein#add('tpope/vim-projectionist')
+  " Git wrapper
+  "
   call dein#add('tpope/vim-fugitive')
+  " Asynchronous control of git repos.
+  " Most useful for i/o like fetch, pull, push
+  " :Gina push
   call dein#add('lambdalisue/gina.vim')
+  " Call ripgrep with `:Rg`
   call dein#add('jremmen/vim-ripgrep')
   call dein#add('neoclide/coc.nvim', { 'merged':0,  'rev': 'release' })
 
   " Handy wrapper for fzf
+  " :GFiles to navigate files
   call dein#add('junegunn/fzf.vim')
 
   " Editing
