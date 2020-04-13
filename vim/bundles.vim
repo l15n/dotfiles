@@ -27,6 +27,8 @@ if dein#load_state('~/.cache/dein')
   " Git wrapper
   "
   call dein#add('tpope/vim-fugitive')
+  " fugitive extension for Github integration
+  call dein#add('tpope/vim-rhubarb')
   " Asynchronous control of git repos.
   " Most useful for i/o like fetch, pull, push
   " :Gina push
