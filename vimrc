@@ -193,3 +193,8 @@ let g:projectionist_heuristics = {
       \     }
       \   }
       \ }
+
+" Configuring vim-rhubarb for GHE https://github.com/tpope/vim-rhubarb
+let g:github_enterprise_urls = ["https://ghe.ckpd.co"]
+" Define the :Browse command for vim-rhubarb
+command -nargs=1 Browse !open <args>
