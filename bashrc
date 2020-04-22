@@ -9,20 +9,12 @@ alias b="bundle"
 alias be="bundle exec"
 alias v="vim"
 alias git="hub"
-alias chrome='open -a "Google Chrome"'
 alias vim=nvim
 
-alias gpr="git pull-request"
-alias gpf="git push --f"
-alias gpm="git push -u mine HEAD"
-
-alias pv='vim `find . | peco`'
-alias pcd='cd $(ghq list -p |peco)'
-alias pco='git checkout `git branch | peco`'
-alias phq='cd $(ghq list -p | peco)'
-
 # Shortcut for using fzf and ghq together
-alias fghq='cd $(ghq root)/$(ghq list | fzf --reverse --height 20)'
+alias fcd='cd $(ghq root)/$(ghq list | fzf --reverse --height 20)'
+alias fco='git checkout $(git branch | fzf)'
+alias fvim='nvim $(fzf)'
 
 # Aliases using OS dependent flags
 if [ $OSTYPE = 'linux-gnu' ]; then
