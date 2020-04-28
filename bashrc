@@ -61,3 +61,6 @@ else
 	ps1_set
 fi
 
+if which -s jump; then
+	eval "$(jump shell)"
+fi
