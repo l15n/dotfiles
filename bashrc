@@ -62,5 +62,5 @@ else
 fi
 
 if which -s jump; then
-	eval "$(jump shell)"
+	eval "$(jump shell bash)"
 fi
