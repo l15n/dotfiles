@@ -43,6 +43,18 @@ if dein#load_state('~/.cache/dein')
 
   " Editing
   call dein#add('tpope/vim-surround')
+  " vim-unimpaired: Bracket maps for navigation, line ops, option toggling
+  " e.g.
+  " - [f, ]f navigates files in directory,
+  " - [n, ]n navigates between conflicts or diff/patch hunks
+  " - [a, ]a for :next, :previous
+  " - [b, ]b for navigating buffers
+  " - [q, ]q for navigating quickfix
+  " - [l, ]l for navigating location list
+  " - [t, ]t for navigating tags
+  " - [e, ]e for swapping lines
+  " - [on, ]on toggles line numbers
+  " - [oh, ]oh toggles hlsearch
   call dein#add('tpope/vim-unimpaired')
   call dein#add('kshenoy/vim-signature')
   call dein#add('tpope/vim-repeat')
