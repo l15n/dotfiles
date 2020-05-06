@@ -1,0 +1,78 @@
+#! /usr/bin/env ruby
+
+require 'pathname'
+require 'fileutils'
+
+BASE_DIR = Pathname.new File.expand_path("../../home", __FILE__)
+HOME_DIR = Pathname.new ENV['HOME']
+
+WARN_COLOR = "\u001b[35;1m" # Bright magenta
+OK_COLOR ="\u001b[32m" # Green
+NOTE_COLOR = "\u001b[33m" #Yellow
+RESET_CODE = "\u001b[0m"
+
+NOW = !!ARGF.argv.delete("--now")
+
+def install(source, target)
+  if NOW
+    target.delete if target.exist? || target.symlink?
+    target.dirname.mkpath
+    File.symlink(source, target)
+  end
+end
+
+def import(target, source)
+  if NOW
+    FileUtils.mv(target, source)
+    target.dirname.mkpath
+    File.symlink(source, target)
+  end
+end
+
+def warn(text)
+  WARN_COLOR + text + RESET_CODE
+end
+
+def note(text)
+  NOTE_COLOR + text + RESET_CODE
+end
+
+def ok(text)
+  OK_COLOR + text + RESET_CODE
+end
+
+Pathname.glob(["*", "**/*"], File::FNM_DOTMATCH, base: BASE_DIR).each do |filename|
+  source = BASE_DIR + filename
+  next if source.directory?
+  target = HOME_DIR + filename
+
+  if target.exist?
+    if target.symlink?
+      if target.realpath == source
+        puts "[SKIP] #{target} already links to #{filename}"
+      else
+        puts warn("[REPLACE] Symlink #{target} to #{filename} instead of #{target.realpath}")
+        install(source, target)
+      end
+    else
+      puts note("[IMPORT] Import #{target} and symlink to #{filename}. Check the diff.")
+      import(target, source)
+    end
+  else
+    if target.symlink?
+      puts note("[REPAIR] Broken symlink at #{target}, replace with symlink to #{filename}")
+      install(source, target)
+    else
+      puts ok("[INSTALL] Symlink #{target} to #{filename}")
+      install(source, target)
+    end
+  end
+end
+
+if NOW
+  puts "\nInstalled dotfiles sourced from #{BASE_DIR}."
+else
+  puts "\n#{warn('Dry-run only')}. Run `bin/install --now` to install dotfiles sourced from #{BASE_DIR}."
+end
+
+# vim: set ft=ruby

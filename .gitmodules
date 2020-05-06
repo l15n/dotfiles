@@ -4,9 +4,6 @@
 [submodule "modules/tmux-powerline-solarized"]
 	path = modules/tmux-powerline-solarized
 	url = https://github.com/seebi/tmux-colors-solarized.git
-[submodule "vim/bundle/neobundle.vim"]
-	path = vim/bundle/neobundle.vim
-	url = https://github.com/Shougo/neobundle.vim.git
 [submodule "modules/tmux-pasteboard"]
 	path = modules/tmux-pasteboard
 	url = https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard.git
