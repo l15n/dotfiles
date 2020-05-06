@@ -1,24 +1,6 @@
-# Editor
-.tmproject
 *.swp
-.netrwhist
-# Filesystem
 .DS_Store
-fishd.*
-fish_*history
-# SVN/local settings
-.svn
-localrc.bash
-local_profile.bash
-update_servers.sh
-ssh_config
-# Build products
 *.o
 *.bundle
 mkmf.log
 Makefile
-# Other
-vim/bundle/*
-vim/tmp
-vim/sessions
-vim/scripts
