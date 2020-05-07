@@ -4,3 +4,5 @@
 *.bundle
 mkmf.log
 Makefile
+
+Brewfile.lock.json
