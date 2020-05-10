@@ -17,10 +17,13 @@ if which -s jump
   status --is-interactive; and source (jump shell fish | psub)
 end
 
+# Nodebrew for managing node versions https://github.com/hokaccha/nodebrew
+if test -x ~/.nodebrew/current/bin/nodebrew
+  set -gx  PATH ~/.nodebrew/current/bin $PATH
+end
+
+# Read local configuration if available
 if test -e ~/.config/fish/localconfig.fish
   source ~/.config/fish/localconfig.fish
 end
 
-if test -x ~/.nodebrew/current/bin/nodebrew
-  set -gx  PATH ~/.nodebrew/current/bin $PATH
-end
