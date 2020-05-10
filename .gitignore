@@ -6,3 +6,7 @@ mkmf.log
 Makefile
 
 Brewfile.lock.json
+
+localconfig.fish
+.local_profile.bash
+.localrc.bash
