@@ -45,3 +45,7 @@ if [[ -s $HOME/.pyenv/shims/python ]] ; then
 	eval "$(pyenv init -)"
 fi
 
+# Nodebrew https://github.com/hokaccha/nodebrew
+if [ -x $HOME/.nodebrew/current/bin/nodebrew ]; then
+	export PATH=$HOME/.nodebrew/current/bin:$PATH
+fi
