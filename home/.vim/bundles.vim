@@ -56,7 +56,17 @@ if dein#load_state('~/.cache/dein')
   " - [on, ]on toggles line numbers
   " - [oh, ]oh toggles hlsearch
   call dein#add('tpope/vim-unimpaired')
+  " vim-signature: better navigation of marks
+  " m, place next available mark
+  " m. toggles next available mark
+  " m- clears marks on current line
+  " m<space> clears marks from current buffer
+  " ]` and ]` jump to next/previous mark
+  " [' and ]' jump to start of next/prev line containing mark
+  " m/ Opens location list with marks
+  "
   call dein#add('kshenoy/vim-signature')
+  " vim-repeat: Enables `.` for plugins like surround.vim, uninmpaired.vim
   call dein#add('tpope/vim-repeat')
 
   " Language specific
