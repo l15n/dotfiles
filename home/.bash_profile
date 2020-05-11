@@ -9,6 +9,8 @@ export GOPATH=$HOME/go
 # See https://github.com/amatsuda/gem-src
 export GEMSRC_USE_GHQ=1
 
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+
 # Disable the warning for Mac OS X Catalina
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
