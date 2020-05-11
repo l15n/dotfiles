@@ -80,6 +80,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('ingydotnet/yaml-vim')
   call dein#add('google/vim-jsonnet')
   call dein#add('leafgarland/typescript-vim')
+  call dein#add('dag/vim-fish')
   " call dein#add('peitalin/vim-jsx-typescript')
   " Seems like vim-jsx-pretty is preferred?
   call dein#add('MaxMEllon/vim-jsx-pretty')
