@@ -16,8 +16,10 @@ alias fcd='cd $(ghq root)/$(ghq list | fzf --reverse --height 20)'
 alias fco='git checkout $(git branch | fzf)'
 alias fvim='nvim $(fzf)'
 
+if which -s exa; then
+	alias ls=exa
 # Aliases using OS dependent flags
-if [ $OSTYPE = 'linux-gnu' ]; then
+elif [ $OSTYPE = 'linux-gnu' ]; then
 	alias ls="ls --color=always"
 	alias l="ls -lhia"
 else
