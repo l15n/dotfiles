@@ -27,3 +27,4 @@ if test -e ~/.config/fish/localconfig.fish
   source ~/.config/fish/localconfig.fish
 end
 
+abbr --add br bundle exec rspec
