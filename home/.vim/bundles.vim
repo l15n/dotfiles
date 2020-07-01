@@ -113,9 +113,6 @@ if dein#load_state('~/.cache/dein')
   " :Wall Write every open window
   call dein#add('tpope/vim-eunuch')
 
-  call dein#add('junkblocker/patchreview-vim')
-  call dein#add('codegram/vim-codereview')
-
   " UI
   call dein#add('fenetikm/falcon')
   call dein#add('altercation/vim-colors-solarized')
