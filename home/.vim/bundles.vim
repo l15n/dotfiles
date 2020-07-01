@@ -107,7 +107,10 @@ if dein#load_state('~/.cache/dein')
   call dein#add('justinmk/vim-gtfo')
   " Path Navigator: dirvish. Works well with unimpaired and eunuch.
   call dein#add('justinmk/vim-dirvish')
-  " for use with dirvish, UNIX shell commands sugar
+  " vim-eunuch: for use with dirvish, UNIX shell commands sugar
+  " e.g.
+  " :Move to rename buffer and file on disk simultaneously.
+  " :Wall Write every open window
   call dein#add('tpope/vim-eunuch')
 
   call dein#add('junkblocker/patchreview-vim')
