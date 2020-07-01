@@ -81,6 +81,10 @@ if dein#load_state('~/.cache/dein')
   call dein#add('google/vim-jsonnet')
   call dein#add('leafgarland/typescript-vim')
   call dein#add('dag/vim-fish')
+
+  " Reformat with :Rufo
+  " Toggle with :RufoToggle or :RufOn :RufoOff
+  call dein#add('ruby-formatter/rufo-vim')
   " call dein#add('peitalin/vim-jsx-typescript')
   " Seems like vim-jsx-pretty is preferred?
   call dein#add('MaxMEllon/vim-jsx-pretty')
