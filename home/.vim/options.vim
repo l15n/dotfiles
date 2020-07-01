@@ -56,3 +56,6 @@ set ambiwidth=double
 " Add sjis to fileencodings
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,sjis,default,latin1
+
+" Extend redraw time to allow syntax hilighting on larger files
+set redrawtime=10000
