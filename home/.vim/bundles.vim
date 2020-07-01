@@ -33,12 +33,14 @@ if dein#load_state('~/.cache/dein')
   " Most useful for i/o like fetch, pull, push
   " :Gina push
   call dein#add('lambdalisue/gina.vim')
-  " Call ripgrep with `:Rg`
+  " Call ripgrep with `:Rg` using the quickfix buffer
   call dein#add('jremmen/vim-ripgrep')
   call dein#add('neoclide/coc.nvim', { 'merged':0,  'rev': 'release' })
 
   " Handy wrapper for fzf
   " :GFiles to navigate files
+  " :Lines for all lines in the buffer
+  " :Find for RipGrep from current directory
   call dein#add('junegunn/fzf.vim')
 
   " Editing

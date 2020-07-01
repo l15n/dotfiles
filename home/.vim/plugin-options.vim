@@ -91,3 +91,11 @@ let g:projectionist_heuristics = {
 let g:github_enterprise_urls = ["https://ghe.ckpd.co"]
 " Define the :Browse command for vim-rhubarb
 command -nargs=1 Browse !open <args>
+
+
+" Custom FZF commands
+" :Find -  Use RipGrep on current directory with preview window
+command! -bang -nargs=* Find
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
