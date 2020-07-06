@@ -9,7 +9,6 @@ let g:lightline = {
       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
       \ }
 
-colorscheme falcon
 
 if &t_Co > 256
   set termguicolors
@@ -19,6 +18,8 @@ endif
 
 let g:falcon_lightline = 1
 let g:lightline.colorscheme='falcon'
+
+colorscheme falcon
 
 " Highlight lines over 120 characters in length whenever a window opens
 " From http://vim.wikia.com/wiki/Highlight_long_lines
