@@ -83,6 +83,9 @@ if dein#load_state('~/.cache/dein')
   call dein#add('google/vim-jsonnet')
   call dein#add('leafgarland/typescript-vim')
   call dein#add('dag/vim-fish')
+  " Format SQL. Configured to use https://github.com/andialbrecht/sqlparse
+  " Run with :SQLFormat
+  call dein#add('b4b4r07/vim-sqlfmt')
 
   " Reformat with :Rufo
   " Toggle with :RufoToggle or :RufOn :RufoOff

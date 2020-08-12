@@ -100,3 +100,11 @@ command! -bang -nargs=* Find
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
+
+" Use https://github.com/andialbrecht/sqlparse with vim-sqlfmt
+" Pre-requisite: `pip install sqlparse`
+let g:sqlfmt_command = "sqlformat"
+" Options can be viewed with `sqlformat -h`
+let g:sqlfmt_options = " -k lower -i lower --comma_first true -s -r --indent_after_first --indent_columns"
+" Disable format on save
+let g:sqlfmt_auto = 0
