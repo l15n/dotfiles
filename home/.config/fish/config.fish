@@ -8,6 +8,8 @@ if test -e ~/.config/fish/localconfig.fish
   source ~/.config/fish/localconfig.fish
 end
 
+set -gx PATH /usr/local/bin $PATH
+
 # Enable rbenv
 set -gx PATH ~/.rbenv/bin $PATH
 status --is-interactive; and source (rbenv init -|psub)
