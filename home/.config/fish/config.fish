@@ -3,6 +3,8 @@ set -gx EDITOR 'nvim'
 
 set -gx GOPATH '$HOME/go'
 
+set -gx PATH ~/bin $PATH
+
 # Read local configuration if available
 if test -e ~/.config/fish/localconfig.fish
   source ~/.config/fish/localconfig.fish
