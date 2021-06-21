@@ -28,6 +28,7 @@
 	graph = log --graph --abbrev-commit --decorate --pretty=oneline
 	fetch-pulls = fetch origin +refs/pull/*:refs/remotes/pull/*
 	backport = cherry-pick -x -m1
+	recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
 [format]
 	numbered = auto
 [branch]
