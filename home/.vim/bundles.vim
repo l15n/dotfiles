@@ -35,7 +35,10 @@ if dein#load_state('~/.cache/dein')
   call dein#add('lambdalisue/gina.vim')
   " Call ripgrep with `:Rg` using the quickfix buffer
   call dein#add('jremmen/vim-ripgrep')
+
   call dein#add('neoclide/coc.nvim', { 'merged':0,  'rev': 'release' })
+
+  call dein#add('neovim/nvim-lspconfig')
 
   " Handy wrapper for fzf
   " :GFiles to navigate files
@@ -120,6 +123,8 @@ if dein#load_state('~/.cache/dein')
   call dein#add('fenetikm/falcon')
   call dein#add('altercation/vim-colors-solarized')
   call dein#add('itchyny/lightline.vim')
+  call dein#add('arcticicestudio/nord-vim')
+  call dein#add('sainnhe/everforest')
 
 
   " You can specify revision/branch/tag.

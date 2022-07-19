@@ -23,4 +23,6 @@ set pyxversion=3
 
 " Configuration for using coc.vim
 " https://github.com/neoclide/coc.nvim
-source $HOME/.vim/coc-config.vim
+"source $HOME/.vim/coc-config.vim
+
+language en_US.UTF-8
