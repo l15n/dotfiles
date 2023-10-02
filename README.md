@@ -1,3 +1,5 @@
+Retired and replaced with https://github.com/l15n/xdg-config-home
+
 # Dotfiles
 
 Configuration files are stored in `home/` and are symlinked to `$HOME/` by the installer.
